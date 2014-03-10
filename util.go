@@ -4,6 +4,7 @@ import (
 	"io/ioutil"
 	"net/http"
 	"net/url"
+	"encoding/json"
 )
 
 const baseURI = "http://confreaks.com/"
@@ -30,5 +31,9 @@ func fetch(uri string) ([]byte, error) {
 	}
 
 	return b, nil
+}
+
+func jsonMarshal(n interface{}) ([]byte, error) {
+	return json.MarshalIndent(n, "", "  ")
 }
 
