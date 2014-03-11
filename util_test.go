@@ -2,13 +2,18 @@ package confreaks
 
 import (
 	"fmt"
+	"io/ioutil"
 	"testing"
 )
+
+func loadFixture(name string) ([]byte, error) {
+	return ioutil.ReadFile(fmt.Sprintf("fixtures/%s", name))
+}
 
 func TestJsonMarshal(t *testing.T) {
 	sample := Event{
 		Title: "Golang Bootcamp",
-		URI:   "http://example.com/events/golang-bootcamp",
+		URL:   "http://example.com/events/golang-bootcamp",
 	}
 
 	json, err := jsonMarshal(sample)
@@ -18,7 +23,8 @@ func TestJsonMarshal(t *testing.T) {
 
 	ex := `{
   "title": "Golang Bootcamp",
-  "uri": "http://example.com/events/golang-bootcamp"
+  "url": "http://example.com/events/golang-bootcamp",
+  "presentations": null
 }`
 
 	if jsf := fmt.Sprintf("%s", json); jsf != ex {

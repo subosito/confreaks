@@ -1,21 +1,20 @@
 package confreaks
 
 import (
+	"code.google.com/p/go.net/html"
+	"encoding/json"
 	"io/ioutil"
 	"net/http"
 	"net/url"
-	"encoding/json"
 )
 
 const baseURI = "http://confreaks.com/"
 
-func relativePath(pathStr string) (uri *url.URL, err error) {
-	uri, err = url.Parse(baseURI)
-	if err == nil {
-		uri.Path = pathStr
-	}
+func relativePath(pathStr string) *url.URL {
+	uri, _ := url.Parse(baseURI)
+	uri.Path = pathStr
 
-	return
+	return uri
 }
 
 func fetch(uri string) ([]byte, error) {
@@ -37,3 +36,12 @@ func jsonMarshal(n interface{}) ([]byte, error) {
 	return json.MarshalIndent(n, "", "  ")
 }
 
+func attrVal(n *html.Node, k string) string {
+	for _, a := range n.Attr {
+		if a.Key == k {
+			return a.Val
+		}
+	}
+
+	return ""
+}
