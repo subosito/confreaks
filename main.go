@@ -134,7 +134,7 @@ func main() {
 			},
 		},
 		{
-			Name:  "index",
+			Name:  "list",
 			Usage: "list available events",
 			Action: func(cc *cli.Context) {
 				events := index("")
