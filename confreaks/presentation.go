@@ -98,3 +98,12 @@ func (p *Presentation) ParseDetails(r io.Reader) error {
 	parse(doc)
 	return nil
 }
+
+func (p *Presentation) DownloadVideo(dir string) error {
+	err := downloadVideo(p.VideoURL, dir)
+	if err != nil {
+		return err
+	}
+
+	return nil
+}

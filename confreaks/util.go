@@ -1,11 +1,16 @@
 package confreaks
 
 import (
+	"bytes"
 	"code.google.com/p/go.net/html"
 	"encoding/json"
+	"errors"
+	"fmt"
 	"io/ioutil"
 	"net/http"
 	"net/url"
+	"os"
+	"os/exec"
 )
 
 func relativePath(pathStr string) *url.URL {
@@ -42,4 +47,19 @@ func attrVal(n *html.Node, k string) string {
 	}
 
 	return ""
+}
+
+func downloadVideo(u, dir string) error {
+	var stderr bytes.Buffer
+
+	cmd := exec.Command("/usr/bin/youtube-dl", "-o", fmt.Sprintf("%s/%%(title)s-%%(id)s.%%(ext)s", dir), fmt.Sprintf("%s", u))
+	cmd.Stdout = os.Stdout
+	cmd.Stderr = &stderr
+
+	err := cmd.Run()
+	if err != nil {
+		return errors.New(stderr.String())
+	}
+
+	return nil
 }

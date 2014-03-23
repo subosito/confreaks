@@ -4,7 +4,9 @@ import (
 	"bytes"
 	"code.google.com/p/cascadia"
 	"code.google.com/p/go.net/html"
+	"encoding/json"
 	"io"
+	"io/ioutil"
 	"os"
 	"path/filepath"
 	"strings"
@@ -113,4 +115,18 @@ func (e *Event) SaveIndex() error {
 	}
 
 	return nil
+}
+
+func (e *Event) LoadIndex() (err error) {
+	f, err := ioutil.ReadFile(filepath.Join(e.Title, indexFile))
+	if err != nil {
+		return
+	}
+
+	err = json.Unmarshal(f, &e)
+	if err != nil {
+		return
+	}
+
+	return
 }
