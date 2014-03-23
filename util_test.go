@@ -23,8 +23,7 @@ func TestJsonMarshal(t *testing.T) {
 
 	ex := `{
   "title": "Golang Bootcamp",
-  "url": "http://example.com/events/golang-bootcamp",
-  "presentations": null
+  "url": "http://example.com/events/golang-bootcamp"
 }`
 
 	if jsf := fmt.Sprintf("%s", json); jsf != ex {

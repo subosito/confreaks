@@ -8,13 +8,19 @@ import (
 func main() {
 	var err error
 
-	events, err := confreaks.LoadEvents()
+	c := confreaks.NewConfreaks()
+	err = c.FetchEvents()
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	for i := range events {
-		e := events[i]
+	err = c.SaveIndex()
+	if err != nil {
+		log.Println(err)
+	}
+
+	for i := range c.Events {
+		e := c.Events[i]
 
 		log.Printf("++ %s\n", e.Title)
 		err = e.Fetch()

@@ -14,7 +14,7 @@ import (
 type Event struct {
 	Title         string          `json:"title"`
 	URL           string          `json:"url"`
-	Presentations []*Presentation `json:"presentations"`
+	Presentations []*Presentation `json:"presentations,omitempty"`
 }
 
 func (e *Event) Fetch() error {

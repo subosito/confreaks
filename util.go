@@ -8,8 +8,6 @@ import (
 	"net/url"
 )
 
-const baseURI = "http://confreaks.com/"
-
 func relativePath(pathStr string) *url.URL {
 	uri, _ := url.Parse(baseURI)
 	uri.Path = pathStr
