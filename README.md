@@ -1,6 +1,8 @@
 # confreaks
 
-confreaks on the command line.
+[![Build Status](https://drone.io/github.com/subosito/confreaks/status.png)](https://drone.io/github.com/subosito/confreaks/latest)
+
+confreaks on the command line
 
 
 ## Installation
