@@ -7,6 +7,7 @@ import (
 	"errors"
 	"fmt"
 	"io/ioutil"
+	"log"
 	"net/http"
 	"net/url"
 	"os"
@@ -52,11 +53,16 @@ func attrVal(n *html.Node, k string) string {
 func downloadVideo(u, dir string) error {
 	var stderr bytes.Buffer
 
-	cmd := exec.Command("/usr/bin/youtube-dl", "-o", fmt.Sprintf("%s/%%(title)s-%%(id)s.%%(ext)s", dir), fmt.Sprintf("%s", u))
+	path, err := exec.LookPath("youtube-dl")
+	if err != nil {
+		log.Fatal("Unable to find 'youtube-dl'. Please install it https://github.com/rg3/youtube-dl")
+	}
+
+	cmd := exec.Command(path, "-o", fmt.Sprintf("%s/%%(title)s-%%(id)s.%%(ext)s", dir), fmt.Sprintf("%s", u))
 	cmd.Stdout = os.Stdout
 	cmd.Stderr = &stderr
 
-	err := cmd.Run()
+	err = cmd.Run()
 	if err != nil {
 		return errors.New(stderr.String())
 	}
