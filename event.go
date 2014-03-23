@@ -1,17 +1,29 @@
 package confreaks
 
 import (
+	"bytes"
 	"code.google.com/p/cascadia"
 	"code.google.com/p/go.net/html"
 	"io"
+	"os"
+	"path/filepath"
 	"strings"
 	"time"
 )
 
 type Event struct {
-	Title         string         `json:"title"`
-	URL           string         `json:"url"`
-	Presentations []Presentation `json:"presentations"`
+	Title         string          `json:"title"`
+	URL           string          `json:"url"`
+	Presentations []*Presentation `json:"presentations"`
+}
+
+func (e *Event) Fetch() error {
+	b, err := fetch(e.URL)
+	if err != nil {
+		return err
+	}
+
+	return e.ParseDetails(bytes.NewReader(b))
 }
 
 func (e *Event) ParseDetails(r io.Reader) error {
@@ -22,14 +34,14 @@ func (e *Event) ParseDetails(r io.Reader) error {
 
 	var presentations_selector = cascadia.MustCompile("div.video")
 	for _, dom := range presentations_selector.MatchAll(doc) {
-		presentation := Presentation{}
+		p := &Presentation{}
 
 		recorded_selector := cascadia.MustCompile(".recorded-at")
 		recorded := recorded_selector.MatchFirst(dom)
 		recorded_str := strings.TrimSpace(recorded.FirstChild.Data)
 		recorded_at, err := time.Parse("02-Jan-06 15:04", recorded_str)
 		if err == nil {
-			presentation.Recorded = recorded_at
+			p.Recorded = recorded_at
 		}
 
 		info_selector := cascadia.MustCompile(".main-info")
@@ -37,8 +49,8 @@ func (e *Event) ParseDetails(r io.Reader) error {
 
 		link_selector := cascadia.MustCompile(".title a")
 		link := link_selector.MatchFirst(info)
-		presentation.Title = link.LastChild.Data
-		presentation.URL = relativePath(attrVal(link, "href")).String()
+		p.Title = link.LastChild.Data
+		p.URL = relativePath(attrVal(link, "href")).String()
 
 		presenters_selector := cascadia.MustCompile(".presenters a")
 		presenters := []string{}
@@ -46,8 +58,58 @@ func (e *Event) ParseDetails(r io.Reader) error {
 			presenters = append(presenters, presenter.LastChild.Data)
 		}
 
-		presentation.Presenters = presenters
-		e.Presentations = append(e.Presentations, presentation)
+		p.Presenters = presenters
+		e.Presentations = append(e.Presentations, p)
+	}
+
+	return nil
+}
+
+func (e *Event) ParsePresentations() error {
+	var err error
+
+	for i := range e.Presentations {
+		p := e.Presentations[i]
+
+		err = p.Fetch()
+		if err != nil {
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (e *Event) Mkdir() error {
+	err := os.MkdirAll(e.Title, 0755)
+	if err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (e *Event) SaveIndex() error {
+	var err error
+
+	err = e.Mkdir()
+	if err != nil {
+		return err
+	}
+
+	b, err := jsonMarshal(e)
+	if err != nil {
+		return err
+	}
+
+	f, err := os.Create(filepath.Join(e.Title, "index.json"))
+	if err != nil {
+		return err
+	}
+
+	_, err = f.Write(b)
+	if err != nil {
+		return err
 	}
 
 	return nil

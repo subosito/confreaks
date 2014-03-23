@@ -26,12 +26,12 @@ func TestParseEvents(t *testing.T) {
 
 	// test last item of events
 	event := events[count-1]
-	ex := Event{
+	ex := &Event{
 		Title: "MountainWest RubyConf 2007",
 		URL:   "http://confreaks.com/events/mwrc2007",
 	}
 
 	if !reflect.DeepEqual(event, ex) {
-		t.Errorf("%#v is not equal with %ex", event, ex)
+		t.Errorf("%#v is not equal with %#v", event, ex)
 	}
 }

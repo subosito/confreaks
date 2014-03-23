@@ -1,6 +1,7 @@
 package confreaks
 
 import (
+	"bytes"
 	"code.google.com/p/go.net/html"
 	"io"
 	"net/url"
@@ -17,10 +18,21 @@ type Presentation struct {
 	Recorded    time.Time `json:"recorded"`
 }
 
-func ParsePresentation(r io.Reader) (p Presentation, err error) {
+func (p *Presentation) Fetch() error {
+	b, err := fetch(p.URL)
+	if err != nil {
+		return err
+	}
+
+	return p.ParseDetails(bytes.NewReader(b))
+}
+
+func (p *Presentation) ParseDetails(r io.Reader) error {
+	var err error
+
 	doc, err := html.Parse(r)
 	if err != nil {
-		return
+		return err
 	}
 
 	var parse func(*html.Node)
@@ -68,8 +80,8 @@ func ParsePresentation(r io.Reader) (p Presentation, err error) {
 						switch a.Val {
 						case "video-title":
 							p.Title = strings.TrimSpace(n.LastChild.Data)
-						case "video-presenters":
-							p.Presenters = extract(n)
+						// case "video-presenters":
+						// 	p.Presenters = extract(n)
 						case "video-abstract":
 							p.Description = strings.Join(extract(n), "\n")
 						}
@@ -84,5 +96,5 @@ func ParsePresentation(r io.Reader) (p Presentation, err error) {
 	}
 
 	parse(doc)
-	return
+	return nil
 }

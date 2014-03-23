@@ -1,11 +1,22 @@
 package confreaks
 
 import (
+	"bytes"
 	"code.google.com/p/go.net/html"
 	"io"
 )
 
-func ParseEvents(r io.Reader) (events []Event, err error) {
+func LoadEvents() (events []*Event, err error) {
+	u := relativePath("events")
+	b, err := fetch(u.String())
+	if err != nil {
+		return
+	}
+
+	return ParseEvents(bytes.NewReader(b))
+}
+
+func ParseEvents(r io.Reader) (events []*Event, err error) {
 	doc, err := html.Parse(r)
 	if err != nil {
 		return
@@ -37,7 +48,7 @@ func ParseEvents(r io.Reader) (events []Event, err error) {
 			for xc := n.FirstChild; xc != nil; xc = xc.NextSibling {
 				event := normalize(xc)
 				if event.Title != "" {
-					events = append(events, event)
+					events = append(events, &event)
 				}
 			}
 		}

@@ -1,24 +1,39 @@
 package main
 
 import (
-	"bytes"
-	"encoding/json"
-	"fmt"
 	"github.com/subosito/confreaks"
-	"io/ioutil"
+	"log"
 )
 
 func main() {
-	b, err := ioutil.ReadFile("event-details.html")
+	var err error
+
+	events, err := confreaks.LoadEvents()
 	if err != nil {
-		return
+		log.Fatal(err)
 	}
 
-	/* events, _ := confreaks.ParseEvents(bytes.NewReader(b)) */
-	/* jb, _ := json.MarshalIndent(events, "", "  ") */
-	/* fmt.Printf("%s\n", jb) */
+	for i := range events {
+		e := events[i]
 
-	event, _ := confreaks.ParseEventDetails(bytes.NewReader(b))
-	jb, _ := json.MarshalIndent(event, "", "  ")
-	fmt.Printf("%s\n", jb)
+		log.Printf("++ %s\n", e.Title)
+		err = e.Fetch()
+		if err != nil {
+			log.Println(err)
+		}
+
+		err = e.ParsePresentations()
+		if err != nil {
+			log.Println(err)
+		}
+
+		for i := range e.Presentations {
+			log.Printf(" +-- %s\n", e.Presentations[i].Title)
+		}
+
+		err = e.SaveIndex()
+		if err != nil {
+			log.Println(err)
+		}
+	}
 }
