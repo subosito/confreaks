@@ -45,11 +45,25 @@ func (p *Presentation) ParseDetails(r io.Reader) error {
 			return ""
 		}
 
-		v := url.Values{}
-		v.Set("v", strings.Replace(au.Path, "/embed/", "", 1))
+		switch au.Host {
+		case "www.youtube.com":
+			// http://www.youtube.com/embed/sVd4p6oKeUA
+			// => http://www.youtube.com/watch?v=sVd4p6oKeUA
 
-		au.Path = "watch"
-		au.RawQuery = v.Encode()
+			v := url.Values{}
+			v.Set("v", strings.Replace(au.Path, "/embed/", "", 1))
+
+			au.Path = "watch"
+			au.RawQuery = v.Encode()
+		case "player.vimeo.com":
+			// http://player.vimeo.com/video/40143060?badge=0
+			// => http://vimeo.com/40143060
+
+			au.Host = "vimeo.com"
+			au.Path = strings.Replace(au.Path, "/video/", "", 1)
+			au.RawQuery = ""
+		}
+
 		return au.String()
 	}
 
