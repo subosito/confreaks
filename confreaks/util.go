@@ -12,6 +12,7 @@ import (
 	"net/url"
 	"os"
 	"os/exec"
+	"path"
 )
 
 func relativePath(pathStr string) *url.URL {
@@ -52,13 +53,32 @@ func attrVal(n *html.Node, k string) string {
 
 func downloadVideo(u, dir string) error {
 	var stderr bytes.Buffer
+	var cmd *exec.Cmd
 
-	path, err := exec.LookPath("youtube-dl")
+	vu, err := url.Parse(u)
 	if err != nil {
-		log.Fatal("Unable to find 'youtube-dl'. Please install it https://github.com/rg3/youtube-dl")
+		return err
 	}
 
-	cmd := exec.Command(path, "-o", fmt.Sprintf("%s/%%(title)s-%%(id)s.%%(ext)s", dir), fmt.Sprintf("%s", u))
+	switch vu.Host {
+	case "cdn.confreaks.com":
+		c, err := exec.LookPath("wget")
+		if err != nil {
+			log.Fatal("Unable to find 'wget'. Please install it.")
+		}
+
+		out := fmt.Sprintf("%s/%s", dir, path.Base(vu.Path))
+		cmd = exec.Command(c, "-N", "-c", "-O", out, u)
+	default:
+		c, err := exec.LookPath("youtube-dl")
+		if err != nil {
+			log.Fatal("Unable to find 'youtube-dl'. Please install it. See https://github.com/rg3/youtube-dl")
+		}
+
+		out := fmt.Sprintf("%s/%%(title)s-%%(id)s.%%(ext)s", dir)
+		cmd = exec.Command(c, "-o", out, u)
+	}
+
 	cmd.Stdout = os.Stdout
 	cmd.Stderr = &stderr
 
