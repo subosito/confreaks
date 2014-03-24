@@ -2,6 +2,7 @@ package confreaks
 
 import (
 	"bytes"
+	"code.google.com/p/cascadia"
 	"code.google.com/p/go.net/html"
 	"io"
 	"net/url"
@@ -35,7 +36,6 @@ func (p *Presentation) ParseDetails(r io.Reader) error {
 		return err
 	}
 
-	var parse func(*html.Node)
 	var extract func(*html.Node) []string
 	var normalize func(s string) string
 
@@ -79,37 +79,30 @@ func (p *Presentation) ParseDetails(r io.Reader) error {
 		return texts
 	}
 
-	parse = func(n *html.Node) {
-		if n.Type == html.ElementNode {
-			switch n.Data {
-			case "iframe":
-				for _, a := range n.Attr {
-					if a.Key == "src" {
-						p.VideoURL = normalize(a.Val)
-					}
-				}
-			case "div":
-				for _, a := range n.Attr {
-					if a.Key == "class" {
-						switch a.Val {
-						case "video-title":
-							p.Title = strings.TrimSpace(n.LastChild.Data)
-						// case "video-presenters":
-						// 	p.Presenters = extract(n)
-						case "video-abstract":
-							p.Description = strings.Join(extract(n), "\n")
-						}
-					}
-				}
-			}
-		}
+	presentation_selector := cascadia.MustCompile("div#primary-content")
+	content := presentation_selector.MatchFirst(doc)
 
-		for c := n.FirstChild; c != nil; c = c.NextSibling {
-			parse(c)
-		}
+	title_selector := cascadia.MustCompile(".video-title")
+	title := title_selector.MatchFirst(content)
+	p.Title = strings.TrimSpace(title.LastChild.Data)
+
+	description_selector := cascadia.MustCompile(".video-abstract")
+	description := description_selector.MatchFirst(content)
+	p.Description = strings.Join(extract(description), "\n")
+
+	var video_selector cascadia.Selector
+	var video *html.Node
+
+	video_selector = cascadia.MustCompile("iframe")
+	video = video_selector.MatchFirst(content)
+
+	if video == nil {
+		video_selector = cascadia.MustCompile("video source")
+		video = video_selector.MatchFirst(content)
 	}
 
-	parse(doc)
+	p.VideoURL = normalize(attrVal(video, "src"))
+
 	return nil
 }
 

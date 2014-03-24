@@ -28,3 +28,26 @@ func TestPresentation_ParseDetails(t *testing.T) {
 		t.Errorf("%#v is not equal with %#v", presentation, ex)
 	}
 }
+
+func TestPresentation_ParseDetailsHTML5(t *testing.T) {
+	b, err := loadFixture("presentation-html5.html")
+	if err != nil {
+		t.Errorf("loadFixture failed with error: %s", err)
+	}
+
+	presentation := &Presentation{}
+	err = presentation.ParseDetails(bytes.NewReader(b))
+	if err != nil {
+		t.Errorf("ParseDetails returned an error %s", err)
+	}
+
+	ex := &Presentation{
+		Title:       "Your Customers Aren't Stupid and Your Coworkers Are Not Incompetent",
+		VideoURL:    "http://cdn.confreaks.com/system/assets/datas/515/original/joe-obrien-small.mp4",
+		Description: "Communication is hard. No doubt about it. Many of us, being geeks at heart, have an inherently difficult time communicating with people. Why is it that if we look around, it seems that all we see is incompetence? Why is it that we struggle to get our point across? Why do customers and bosses always seem stupid?\nIn this talk we will focus on communication. How to more effectively listen and speak. We will discuss some patterns that we can look for in ourselves. We will talk about strategies on how can we take a step back and realize what it is we are trying to say and hopefully uncover what it is that our bosses and customers are really hearing.\nI will also walk you through strategies on how to have those difficult conversations and steps that I've learned through my years in sales, consulting, project management and business ownership.",
+	}
+
+	if !reflect.DeepEqual(presentation, ex) {
+		t.Errorf("%#v is not equal with %#v", presentation, ex)
+	}
+}
