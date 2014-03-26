@@ -10,6 +10,7 @@ import (
 	"os"
 	"path/filepath"
 	"strings"
+	"sync"
 	"time"
 )
 
@@ -68,16 +69,27 @@ func (e *Event) ParseDetails(r io.Reader) error {
 }
 
 func (e *Event) ParsePresentations() error {
-	var err error
+	var wg sync.WaitGroup
 
 	for i := range e.Presentations {
 		p := e.Presentations[i]
+		wg.Add(1)
 
-		err = p.Fetch()
-		if err != nil {
-			return err
-		}
+		go func(p *Presentation) {
+			defer wg.Done()
+
+			for i := 0; ; i++ {
+				err := p.Fetch()
+				if err == nil {
+					break
+				} else {
+					time.Sleep(100 * time.Millisecond)
+				}
+			}
+		}(p)
 	}
+
+	wg.Wait()
 
 	return nil
 }
