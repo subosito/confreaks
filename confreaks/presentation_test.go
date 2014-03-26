@@ -51,3 +51,26 @@ func TestPresentation_ParseDetailsHTML5(t *testing.T) {
 		t.Errorf("%#v is not equal with %#v", presentation, ex)
 	}
 }
+
+func TestPresentation_ParseNoVideo(t *testing.T) {
+	b, err := loadFixture("presentation-no-video.html")
+	if err != nil {
+		t.Errorf("loadFixture failed with error: %s", err)
+	}
+
+	presentation := &Presentation{}
+	err = presentation.ParseDetails(bytes.NewReader(b))
+	if err != nil {
+		t.Errorf("ParseDetails returned an error %s", err)
+	}
+
+	ex := &Presentation{
+		Title:       "Failing in Plain Sight (Succeeding Invisibly)",
+		VideoURL:    "",
+		Description: "Supporting every good creative effort is an editorial one, ensuring the\nmessage is focused and clear. This is most successful when nobody notices\nit, and in fact is a failure when people do notice.\nIn the development world, these invisible successes happen in refactoring,\nperformance tuning, spam fighting, security. These areas don't get flashy\nwins, just nasty losses.\nWhen this is what you do, you must get satisfaction from a job well done.\nYou won't get much praise, but what you do get will be sincere, and it\nwill come from people who understand how important it is to keep the",
+	}
+
+	if !reflect.DeepEqual(presentation, ex) {
+		t.Errorf("%#v is not equal with %#v", presentation, ex)
+	}
+}

@@ -4,6 +4,8 @@ import (
 	"bytes"
 	"code.google.com/p/cascadia"
 	"code.google.com/p/go.net/html"
+	"errors"
+	"fmt"
 	"io"
 	"net/url"
 	"strings"
@@ -101,12 +103,18 @@ func (p *Presentation) ParseDetails(r io.Reader) error {
 		video = video_selector.MatchFirst(content)
 	}
 
-	p.VideoURL = normalize(attrVal(video, "src"))
+	if video != nil {
+		p.VideoURL = normalize(attrVal(video, "src"))
+	}
 
 	return nil
 }
 
 func (p *Presentation) DownloadVideo(dir string) error {
+	if p.VideoURL == "" {
+		return errors.New(fmt.Sprintf("No Video URL for %q", p.Title))
+	}
+
 	err := downloadVideo(p.VideoURL, dir)
 	if err != nil {
 		return err
