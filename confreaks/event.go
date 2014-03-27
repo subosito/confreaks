@@ -116,7 +116,7 @@ func (e *Event) SaveIndex() error {
 		return err
 	}
 
-	f, err := os.Create(filepath.Join(e.Title, "index.json"))
+	f, err := os.Create(filepath.Join(e.Title, indexFile))
 	if err != nil {
 		return err
 	}
