@@ -76,7 +76,12 @@ func downloadVideo(u, dir string) error {
 		}
 
 		out := fmt.Sprintf("%s/%%(title)s-%%(id)s.%%(ext)s", dir)
-		cmd = exec.Command(c, "-o", out, u)
+
+		if vu.Host == "blip.tv" {
+			cmd = exec.Command(c, "--ignore-config", "-o", out, u)
+		} else {
+			cmd = exec.Command(c, "-o", out, u)
+		}
 	}
 
 	cmd.Stdout = os.Stdout
