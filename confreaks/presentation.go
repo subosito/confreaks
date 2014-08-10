@@ -4,7 +4,6 @@ import (
 	"bytes"
 	"code.google.com/p/cascadia"
 	"code.google.com/p/go.net/html"
-	"errors"
 	"fmt"
 	"io"
 	"net/url"
@@ -81,26 +80,26 @@ func (p *Presentation) ParseDetails(r io.Reader) error {
 		return texts
 	}
 
-	presentation_selector := cascadia.MustCompile("div#primary-content")
-	content := presentation_selector.MatchFirst(doc)
+	presentationSelector := cascadia.MustCompile("div#primary-content")
+	content := presentationSelector.MatchFirst(doc)
 
-	title_selector := cascadia.MustCompile(".video-title")
-	title := title_selector.MatchFirst(content)
+	titleSelector := cascadia.MustCompile(".video-title")
+	title := titleSelector.MatchFirst(content)
 	p.Title = strings.TrimSpace(title.LastChild.Data)
 
-	description_selector := cascadia.MustCompile(".video-abstract")
-	description := description_selector.MatchFirst(content)
+	descriptionSelector := cascadia.MustCompile(".video-abstract")
+	description := descriptionSelector.MatchFirst(content)
 	p.Description = strings.Join(extract(description), "\n")
 
-	var video_selector cascadia.Selector
+	var videoSelector cascadia.Selector
 	var video *html.Node
 
-	video_selector = cascadia.MustCompile("iframe")
-	video = video_selector.MatchFirst(content)
+	videoSelector = cascadia.MustCompile("iframe")
+	video = videoSelector.MatchFirst(content)
 
 	if video == nil {
-		video_selector = cascadia.MustCompile("video source")
-		video = video_selector.MatchFirst(content)
+		videoSelector = cascadia.MustCompile("video source")
+		video = videoSelector.MatchFirst(content)
 	}
 
 	if video != nil {
@@ -112,7 +111,7 @@ func (p *Presentation) ParseDetails(r io.Reader) error {
 
 func (p *Presentation) DownloadVideo(dir string) error {
 	if p.VideoURL == "" {
-		return errors.New(fmt.Sprintf("No Video URL for %q", p.Title))
+		return fmt.Errorf("No Video URL for %q", p.Title)
 	}
 
 	err := downloadVideo(p.VideoURL, dir)

@@ -63,11 +63,11 @@ func (c *Confreaks) ParseEvents(r io.Reader) error {
 		if n.Attr != nil {
 			for _, a := range n.Attr {
 				if a.Key == "href" {
-					eventUrl := relativePath(a.Val)
+					eventURL := relativePath(a.Val)
 
 					return Event{
 						Title: n.LastChild.Data,
-						URL:   eventUrl.String(),
+						URL:   eventURL.String(),
 					}
 				}
 			}

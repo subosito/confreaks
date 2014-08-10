@@ -42,29 +42,29 @@ func (e *Event) ParseDetails(r io.Reader) error {
 		return err
 	}
 
-	var presentations_selector = cascadia.MustCompile("div.video")
-	for _, dom := range presentations_selector.MatchAll(doc) {
+	var presentationsSelector = cascadia.MustCompile("div.video")
+	for _, dom := range presentationsSelector.MatchAll(doc) {
 		p := &Presentation{}
 
-		recorded_selector := cascadia.MustCompile(".recorded-at")
-		recorded := recorded_selector.MatchFirst(dom)
-		recorded_str := strings.TrimSpace(recorded.FirstChild.Data)
-		recorded_at, err := time.Parse("02-Jan-06 15:04", recorded_str)
+		recordedSelector := cascadia.MustCompile(".recorded-at")
+		recorded := recordedSelector.MatchFirst(dom)
+		recordedStr := strings.TrimSpace(recorded.FirstChild.Data)
+		recordedAt, err := time.Parse("02-Jan-06 15:04", recordedStr)
 		if err == nil {
-			p.Recorded = recorded_at
+			p.Recorded = recordedAt
 		}
 
-		info_selector := cascadia.MustCompile(".main-info")
-		info := info_selector.MatchFirst(dom)
+		infoSelector := cascadia.MustCompile(".main-info")
+		info := infoSelector.MatchFirst(dom)
 
-		link_selector := cascadia.MustCompile(".title a")
-		link := link_selector.MatchFirst(info)
+		linkSelector := cascadia.MustCompile(".title a")
+		link := linkSelector.MatchFirst(info)
 		p.Title = strings.TrimSpace(link.LastChild.Data)
 		p.URL = relativePath(attrVal(link, "href")).String()
 
-		presenters_selector := cascadia.MustCompile(".presenters a")
+		presentersSelector := cascadia.MustCompile(".presenters a")
 		presenters := []string{}
-		for _, presenter := range presenters_selector.MatchAll(info) {
+		for _, presenter := range presentersSelector.MatchAll(info) {
 			presenters = append(presenters, presenter.LastChild.Data)
 		}
 
