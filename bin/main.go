@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 	"github.com/codegangsta/cli"
-	"github.com/subosito/confreaks/confreaks"
+	"github.com/subosito/confreaks"
 	"log"
 	"os"
 	"strings"
