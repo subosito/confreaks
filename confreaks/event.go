@@ -5,6 +5,7 @@ import (
 	"code.google.com/p/cascadia"
 	"code.google.com/p/go.net/html"
 	"encoding/json"
+	"github.com/Sirupsen/logrus"
 	"io"
 	"io/ioutil"
 	"os"
@@ -23,6 +24,12 @@ type Event struct {
 func (e *Event) Fetch() error {
 	b, err := fetch(e.URL)
 	if err != nil {
+
+		log.WithFields(logrus.Fields{
+			"event": e.Title,
+			"error": err.Error(),
+		}).Info("fetch error")
+
 		return err
 	}
 
@@ -52,7 +59,7 @@ func (e *Event) ParseDetails(r io.Reader) error {
 
 		link_selector := cascadia.MustCompile(".title a")
 		link := link_selector.MatchFirst(info)
-		p.Title = link.LastChild.Data
+		p.Title = strings.TrimSpace(link.LastChild.Data)
 		p.URL = relativePath(attrVal(link, "href")).String()
 
 		presenters_selector := cascadia.MustCompile(".presenters a")
@@ -69,25 +76,35 @@ func (e *Event) ParseDetails(r io.Reader) error {
 }
 
 func (e *Event) ParsePresentations() error {
+	tasks := make(chan *Presentation, 12)
+
 	var wg sync.WaitGroup
-
-	for i := range e.Presentations {
-		p := e.Presentations[i]
+	for i := 0; i < 8; i++ {
 		wg.Add(1)
+		go func() {
+			for p := range tasks {
+				for x := 0; ; x++ {
+					log.WithField("presentation", p.Title).Info("fetching")
 
-		go func(p *Presentation) {
-			defer wg.Done()
-
-			for i := 0; ; i++ {
-				err := p.Fetch()
-				if err == nil {
-					break
-				} else {
-					time.Sleep(100 * time.Millisecond)
+					err := p.Fetch()
+					if err == nil {
+						log.WithField("presentation", p.Title).Info("fetched")
+						break
+					} else {
+						time.Sleep(200 * time.Millisecond)
+						log.WithField("presentation", p.Title).Info("re-fetching")
+					}
 				}
 			}
-		}(p)
+			wg.Done()
+		}()
 	}
+
+	for i := range e.Presentations {
+		tasks <- e.Presentations[i]
+	}
+
+	close(tasks)
 
 	wg.Wait()
 

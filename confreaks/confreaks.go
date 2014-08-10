@@ -4,6 +4,7 @@ import (
 	"bytes"
 	"code.google.com/p/go.net/html"
 	"encoding/json"
+	"github.com/Sirupsen/logrus"
 	"io"
 	"io/ioutil"
 	"os"
@@ -12,6 +13,7 @@ import (
 const baseURI = "http://confreaks.com/"
 
 var indexFile = "index.json"
+var log = logrus.New()
 
 type Confreaks struct {
 	URL    string   `json:"url"`

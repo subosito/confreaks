@@ -2,9 +2,14 @@ package confreaks
 
 import (
 	"bytes"
+	"io/ioutil"
 	"reflect"
 	"testing"
 )
+
+func init() {
+	log.Out = ioutil.Discard
+}
 
 func TestConfreaks_ParseEvents(t *testing.T) {
 	b, err := loadFixture("events.html")
