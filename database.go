@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 	tdb "github.com/HouzuoGuo/tiedot/db"
+	"time"
 )
 
 var db *tdb.DB
@@ -108,6 +109,41 @@ func OpenEvent(title string) (ev *Event, err error) {
 		ev = &Event{}
 		ev.Title = doc["Title"].(string)
 		ev.URL = doc["URL"].(string)
+
+		var pcol *tdb.Col
+		pcol, err = Use("presentations")
+		if err != nil {
+			return
+		}
+
+		json.Unmarshal([]byte(fmt.Sprintf(`{"eq": %q, "in": ["EventID"]}`, id)), &q)
+		presult := make(map[int]struct{})
+
+		err = tdb.EvalQuery(q, pcol, &presult)
+		if err != nil {
+			return
+		}
+
+		for pid := range result {
+			var pdoc map[string]interface{}
+
+			pdoc, err = pcol.Read(pid)
+			if err != nil {
+				return
+			}
+
+			p := &Presentation{}
+			p.Title = pdoc["Title"].(string)
+			p.Description = pdoc["Description"].(string)
+			p.Presenters = pdoc["Presenters"].([]string)
+			p.VideoURL = pdoc["VideoURL"].(string)
+			p.URL = pdoc["URL"].(string)
+			p.Recorded = pdoc["Recorded"].(time.Time)
+			p.EventID = pdoc["EventID"].(int)
+
+			ev.Presentations = append(ev.Presentations, p)
+		}
+
 		return
 	}
 
@@ -150,8 +186,10 @@ func SavePresentations(presentations []*Presentation) error {
 			"VideoURL":    p.VideoURL,
 			"URL":         p.URL,
 			"Recorded":    p.Recorded,
+			"EventID":     p.EventID,
 		})
 	}
 
+	col.Index([]string{"EventID"})
 	return nil
 }
