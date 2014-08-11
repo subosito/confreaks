@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"github.com/codegangsta/cli"
 	"github.com/subosito/confreaks"
 	"log"
@@ -33,14 +34,12 @@ func main() {
 	}
 
 	init := func() {
-		c := confreaks.NewConfreaks()
-
-		err = c.FetchEvents()
+		events, err := confreaks.FetchEvents()
 		if err != nil {
 			log.Fatal(err)
 		}
 
-		err = c.Save()
+		err = confreaks.SaveEvents(events)
 		if err != nil {
 			log.Println(err)
 		}
@@ -48,52 +47,59 @@ func main() {
 		log.Println("confreaks events saved")
 	}
 
-	sync := func(pattern string) {
-		var err error
-
-		c := confreaks.NewConfreaks()
-		e, _ := c.GetEvent(pattern)
-
-		err = e.Fetch()
+	list := func() {
+		events, err := confreaks.AllEvents()
 		if err != nil {
 			log.Println(err)
 		}
 
-		err = e.ParsePresentations()
-		if err != nil {
-			log.Println(err)
-		}
-
-		for x := range e.Presentations {
-			log.Printf(" +-- %s\n", e.Presentations[x].Title)
+		for i := range events {
+			fmt.Println(events[i].Title)
 		}
 	}
 
-	// download := func(pattern string) {
-	// 	var err error
+	sync := func(pattern string) {
+		var err error
 
-	// 	events := index(pattern)
+		ev, _ := confreaks.OpenEvent(pattern)
 
-	// 	for i := range events {
-	// 		e := events[i]
+		err = ev.FetchDetails()
+		if err != nil {
+			log.Println(err)
+		}
 
-	// 		log.Printf("++ %s\n", e.Title)
-	// 		err = e.LoadIndex()
-	// 		if err != nil {
-	// 			log.Println(err)
-	// 		}
+		err = ev.FetchPresentations()
+		if err != nil {
+			log.Println(err)
+		}
 
-	// 		for x := range e.Presentations {
-	// 			p := e.Presentations[x]
+		err = confreaks.SavePresentations(ev.Presentations)
+		if err != nil {
+			log.Println(err)
+		}
 
-	// 			log.Printf(" +-- Downloading %s\n", p.Title)
-	// 			err = p.DownloadVideo(e.Title)
-	// 			if err != nil {
-	// 				log.Printf(" !! unable to download video for %q\n", p.Title)
-	// 			}
-	// 		}
-	// 	}
-	// }
+		for x := range ev.Presentations {
+			log.Printf(" +-- %s\n", ev.Presentations[x].Title)
+		}
+	}
+
+	download := func(pattern string) {
+		var err error
+
+		ev, _ := confreaks.OpenEvent(pattern)
+
+		log.Printf("++ %s\n", ev.Title)
+
+		for x := range ev.Presentations {
+			p := ev.Presentations[x]
+
+			log.Printf(" +-- Downloading %s\n", p.Title)
+			err = p.DownloadVideo(ev.Title)
+			if err != nil {
+				log.Printf(" !! unable to download video for %q\n", p.Title)
+			}
+		}
+	}
 
 	app := cli.NewApp()
 	app.Name = "confreaks"
@@ -107,16 +113,13 @@ func main() {
 				init()
 			},
 		},
-		// {
-		// 	Name:  "list",
-		// 	Usage: "list available events",
-		// 	Action: func(cc *cli.Context) {
-		// 		events := index("")
-		// 		for i := range events {
-		// 			fmt.Println(events[i].Title)
-		// 		}
-		// 	},
-		// },
+		{
+			Name:  "list",
+			Usage: "list available events",
+			Action: func(cc *cli.Context) {
+				list()
+			},
+		},
 		{
 			Name:  "sync",
 			Usage: "sync event/events [EVENT TITLE]",
@@ -124,13 +127,13 @@ func main() {
 				sync(cc.Args().First())
 			},
 		},
-		// {
-		// 	Name:  "download",
-		// 	Usage: "download event/events [EVENT TITLE]",
-		// 	Action: func(cc *cli.Context) {
-		// 		download(cc.Args().First())
-		// 	},
-		// },
+		{
+			Name:  "download",
+			Usage: "download event/events [EVENT TITLE]",
+			Action: func(cc *cli.Context) {
+				download(cc.Args().First())
+			},
+		},
 	}
 
 	app.Run(os.Args)
