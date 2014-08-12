@@ -24,7 +24,7 @@ $ mkdir conferences
 $ cd conferences
 ```
 
-Run `confreaks init` to get all events from confreaks.com. It will saves to an `index.json` file.
+Run `confreaks init` to get all events from confreaks.com. It will saves to a `_db_` directory.
 
 ```
 $ confreaks init
