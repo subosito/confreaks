@@ -88,12 +88,17 @@ func main() {
 
 		ev, _ := confreaks.OpenEvent(pattern)
 
-		log.Printf("++ %s\n", ev.Title)
+		fmt.Println(ev.Title)
+
+		err = os.MkdirAll(ev.Title, 0755)
+		if err != nil {
+			log.Fatal(err.Error())
+		}
 
 		for x := range ev.Presentations {
 			p := ev.Presentations[x]
 
-			log.Printf(" +-- Downloading %s\n", p.Title)
+			log.Printf(" +-- Downloading %s (%s)\n", p.Title, p.VideoURL)
 			err = p.DownloadVideo(ev.Title)
 			if err != nil {
 				log.Printf(" !! unable to download video for %q\n", p.Title)

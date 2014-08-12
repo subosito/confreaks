@@ -4,6 +4,8 @@ import (
 	"encoding/json"
 	"fmt"
 	tdb "github.com/HouzuoGuo/tiedot/db"
+	"reflect"
+	"strings"
 	"time"
 )
 
@@ -109,6 +111,7 @@ func OpenEvent(title string) (ev *Event, err error) {
 		ev = &Event{}
 		ev.Title = doc["Title"].(string)
 		ev.URL = doc["URL"].(string)
+		ev.ID = id
 
 		var pcol *tdb.Col
 		pcol, err = Use("presentations")
@@ -116,15 +119,17 @@ func OpenEvent(title string) (ev *Event, err error) {
 			return
 		}
 
-		json.Unmarshal([]byte(fmt.Sprintf(`{"eq": %q, "in": ["EventID"]}`, id)), &q)
-		presult := make(map[int]struct{})
+		var pq interface{}
 
-		err = tdb.EvalQuery(q, pcol, &presult)
+		json.Unmarshal([]byte(fmt.Sprintf(`{"eq": %d, "in": ["EventID"]}`, id)), &pq)
+
+		presult := make(map[int]struct{})
+		err = tdb.EvalQuery(pq, pcol, &presult)
 		if err != nil {
 			return
 		}
 
-		for pid := range result {
+		for pid := range presult {
 			var pdoc map[string]interface{}
 
 			pdoc, err = pcol.Read(pid)
@@ -135,11 +140,25 @@ func OpenEvent(title string) (ev *Event, err error) {
 			p := &Presentation{}
 			p.Title = pdoc["Title"].(string)
 			p.Description = pdoc["Description"].(string)
-			p.Presenters = pdoc["Presenters"].([]string)
 			p.VideoURL = pdoc["VideoURL"].(string)
 			p.URL = pdoc["URL"].(string)
-			p.Recorded = pdoc["Recorded"].(time.Time)
-			p.EventID = pdoc["EventID"].(int)
+			p.EventID = int(pdoc["EventID"].(float64))
+
+			pp := reflect.ValueOf(pdoc["Presenters"])
+			if pp.Kind() == reflect.Slice {
+				ps := make([]string, pp.Len())
+
+				for i := 0; i < pp.Len(); i++ {
+					name := pp.Index(i).Interface().(string)
+					ps = append(ps, strings.TrimSpace(name))
+				}
+
+				p.Presenters = ps
+			}
+
+			tf := "2006-01-02T15:04:05Z"
+			tt, _ := time.Parse(tf, pdoc["Recorded"].(string))
+			p.Recorded = tt
 
 			ev.Presentations = append(ev.Presentations, p)
 		}

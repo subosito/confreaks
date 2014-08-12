@@ -8,6 +8,7 @@ import (
 )
 
 type Event struct {
+	ID            int             `json:"-"`
 	Title         string          `json:"title"`
 	URL           string          `json:"url"`
 	Presentations []*Presentation `json:"presentations,omitempty"`
@@ -40,6 +41,7 @@ func (e *Event) FetchPresentations() error {
 
 					err := p.FetchDetails()
 					if err == nil {
+						p.EventID = e.ID
 						log.WithField("presentation", p.Title).Debug("fetched")
 						break
 					} else {
