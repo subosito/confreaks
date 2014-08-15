@@ -5,6 +5,7 @@ import (
 	"fmt"
 	tdb "github.com/HouzuoGuo/tiedot/db"
 	"reflect"
+	"sort"
 	"strings"
 	"time"
 )
@@ -171,6 +172,12 @@ func OpenEvent(title string) (ev *Event, err error) {
 	return
 }
 
+type byDate []*Event
+
+func (d byDate) Len() int           { return len(d) }
+func (d byDate) Swap(i, j int)      { d[i], d[j] = d[j], d[i] }
+func (d byDate) Less(i, j int) bool { return d[i].Date.After(d[j].Date) }
+
 func AllEvents() (events []*Event, err error) {
 	col, err := Use("events")
 	if err != nil {
@@ -188,6 +195,7 @@ func AllEvents() (events []*Event, err error) {
 		return true
 	})
 
+	sort.Sort(byDate(events))
 	return
 }
 
