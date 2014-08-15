@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	tm "github.com/buger/goterm"
 	"github.com/codegangsta/cli"
 	"github.com/subosito/confreaks"
 	"log"
@@ -53,9 +54,18 @@ func main() {
 			log.Println(err)
 		}
 
+		box := tm.NewBox(50|tm.PCT, 75|tm.PCT, 0)
+		et := tm.NewTable(0, 10, 5, ' ', 0)
+		fmt.Fprint(et, "NO\tDATE EVENT\tEVENT TITLE\n")
+
 		for i := range events {
-			fmt.Println(events[i].Title)
+			ev := events[i]
+			fmt.Fprintf(et, "%d\t%s\t%s\n", i+1, ev.Date.Format("Jan 02, 2006"), ev.Title)
 		}
+
+		fmt.Fprintf(box, et.String())
+		tm.Println(box)
+		tm.Flush()
 	}
 
 	sync := func(pattern string) {

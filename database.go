@@ -57,6 +57,7 @@ func SaveEvents(events []*Event) error {
 			col.Insert(map[string]interface{}{
 				"Title": ev.Title,
 				"URL":   ev.URL,
+				"Date":  ev.Date,
 			})
 		}
 
@@ -77,6 +78,7 @@ func SaveEvents(events []*Event) error {
 			col.Insert(map[string]interface{}{
 				"Title": ev.Title,
 				"URL":   ev.URL,
+				"Date":  ev.Date,
 			})
 		}
 	}
@@ -121,7 +123,7 @@ func OpenEvent(title string) (ev *Event, err error) {
 
 		var pq interface{}
 
-		json.Unmarshal([]byte(fmt.Sprintf(`{"eq": %d, "in": ["EventID"]}`, id)), &pq)
+		json.Unmarshal([]byte(fmt.Sprintf(`{"eq": %q, "in": ["EventTitle"]}`, ev.Title)), &pq)
 
 		presult := make(map[int]struct{})
 		err = tdb.EvalQuery(pq, pcol, &presult)
@@ -142,7 +144,7 @@ func OpenEvent(title string) (ev *Event, err error) {
 			p.Description = pdoc["Description"].(string)
 			p.VideoURL = pdoc["VideoURL"].(string)
 			p.URL = pdoc["URL"].(string)
-			p.EventID = int(pdoc["EventID"].(float64))
+			p.EventTitle = pdoc["EventTitle"].(string)
 
 			pp := reflect.ValueOf(pdoc["Presenters"])
 			if pp.Kind() == reflect.Slice {
@@ -205,10 +207,10 @@ func SavePresentations(presentations []*Presentation) error {
 			"VideoURL":    p.VideoURL,
 			"URL":         p.URL,
 			"Recorded":    p.Recorded,
-			"EventID":     p.EventID,
+			"EventTitle":  p.EventTitle,
 		})
 	}
 
-	col.Index([]string{"EventID"})
+	col.Index([]string{"EventTitle"})
 	return nil
 }

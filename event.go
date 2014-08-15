@@ -9,8 +9,9 @@ import (
 
 type Event struct {
 	ID            int             `json:"-"`
-	Title         string          `json:"title"`
-	URL           string          `json:"url"`
+	Title         string          `json:"Title"`
+	URL           string          `json:"URL"`
+	Date          time.Time       `json:"Date"`
 	Presentations []*Presentation `json:"presentations,omitempty"`
 }
 
@@ -41,7 +42,7 @@ func (e *Event) FetchPresentations() error {
 
 					err := p.FetchDetails()
 					if err == nil {
-						p.EventID = e.ID
+						p.EventTitle = e.Title
 						log.WithField("presentation", p.Title).Debug("fetched")
 						break
 					} else {

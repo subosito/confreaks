@@ -5,6 +5,7 @@ import (
 	"code.google.com/p/go.net/html"
 	"io"
 	"net/url"
+	"regexp"
 	"strings"
 	"time"
 )
@@ -15,58 +16,31 @@ func ParseEvents(r io.Reader) (events []*Event, err error) {
 		return
 	}
 
-	var parse func(*html.Node)
-	var extract func(*html.Node)
-	var normalize func(*html.Node) Event
+	eventSel := cascadia.MustCompile("li.event-box")
+	for _, dom := range eventSel.MatchAll(doc) {
+		ev := &Event{}
 
-	normalize = func(n *html.Node) Event {
-		if n.Attr != nil {
-			for _, a := range n.Attr {
-				if a.Key == "href" {
-					eventURL := relativePath(a.Val)
+		linkSelector := cascadia.MustCompile("span.small > strong > a")
+		link := linkSelector.MatchFirst(dom)
+		ev.Title = strings.TrimSpace(link.LastChild.Data)
+		ev.URL = relativePath(attrVal(link, "href")).String()
 
-					return Event{
-						Title: n.LastChild.Data,
-						URL:   eventURL.String(),
-					}
-				}
-			}
+		dateSelector := cascadia.MustCompile("span.small > a")
+		date := dateSelector.MatchFirst(dom)
+		dstr := date.FirstChild.Data
+
+		re := regexp.MustCompile("([a-zA-Z]{3}) ([0-9]{2})( - [0-9]{2})?, ([0-9]{4})")
+		dclean := re.ReplaceAllString(dstr, "$1 $2, $4")
+
+		dt, err := time.Parse("Jan 02, 2006", dclean)
+		if err != nil {
+			dt = time.Time{}
 		}
 
-		return Event{}
+		ev.Date = dt.UTC()
+		events = append(events, ev)
 	}
 
-	extract = func(n *html.Node) {
-		if n.Type == html.ElementNode && n.Data == "strong" {
-			for xc := n.FirstChild; xc != nil; xc = xc.NextSibling {
-				event := normalize(xc)
-				if event.Title != "" {
-					events = append(events, &event)
-				}
-			}
-		}
-
-		for c := n.FirstChild; c != nil; c = c.NextSibling {
-			extract(c)
-		}
-	}
-
-	parse = func(n *html.Node) {
-		if n.Type == html.ElementNode && n.Data == "li" {
-			for _, a := range n.Attr {
-				if a.Key == "class" && a.Val == "event-box" {
-					extract(n)
-					break
-				}
-			}
-		}
-
-		for c := n.FirstChild; c != nil; c = c.NextSibling {
-			parse(c)
-		}
-	}
-
-	parse(doc)
 	return
 }
 
