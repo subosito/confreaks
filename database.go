@@ -40,6 +40,8 @@ func Use(s string) (*tdb.Col, error) {
 		if err != nil {
 			return nil, err
 		}
+
+		col = db.Use(s)
 	}
 
 	return col, nil
@@ -51,7 +53,7 @@ func SaveEvents(events []*Event) error {
 		return err
 	}
 
-	if col.ApproxDocCount() == 0 {
+	if len(col.AllIndexes()) == 0 {
 		for i := range events {
 			ev := events[i]
 			log.WithField("title", ev.Title).Info("event added")

@@ -44,8 +44,6 @@ func main() {
 		if err != nil {
 			log.Println(err)
 		}
-
-		log.Println("confreaks events saved")
 	}
 
 	list := func() {
@@ -87,9 +85,33 @@ func main() {
 		if err != nil {
 			log.Println(err)
 		}
+	}
 
-		for x := range ev.Presentations {
-			log.Printf(" +-- %s\n", ev.Presentations[x].Title)
+	syncAll := func() {
+		var err error
+
+		events, err := confreaks.AllEvents()
+		if err != nil {
+			log.Println(err)
+		}
+
+		for i := range events {
+			ev := events[i]
+
+			err = ev.FetchDetails()
+			if err != nil {
+				log.Println(err)
+			}
+
+			err = ev.FetchPresentations()
+			if err != nil {
+				log.Println(err)
+			}
+
+			err = confreaks.SavePresentations(ev.Presentations)
+			if err != nil {
+				log.Println(err)
+			}
 		}
 	}
 
@@ -140,6 +162,13 @@ func main() {
 			Usage: "sync event/events [EVENT TITLE]",
 			Action: func(cc *cli.Context) {
 				sync(cc.Args().First())
+			},
+		},
+		{
+			Name:  "sync-all",
+			Usage: "sync all events",
+			Action: func(cc *cli.Context) {
+				syncAll()
 			},
 		},
 		{
