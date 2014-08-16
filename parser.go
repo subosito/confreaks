@@ -6,6 +6,7 @@ import (
 	"io"
 	"net/url"
 	"regexp"
+	"strconv"
 	"strings"
 	"time"
 )
@@ -38,6 +39,14 @@ func ParseEvents(r io.Reader) (events []*Event, err error) {
 		}
 
 		ev.Date = dt.UTC()
+
+		numSelector := cascadia.MustCompile("span:last-child.small")
+		num := numSelector.MatchFirst(dom)
+		nstr := strings.Split(strings.TrimSpace(num.FirstChild.Data), "\n")
+		if n, err := strconv.Atoi(nstr[0]); err == nil {
+			ev.NumPresentations = n
+		}
+
 		events = append(events, ev)
 	}
 

@@ -31,7 +31,7 @@ func CloseDB() error {
 	return db.Close()
 }
 
-func Use(s string) (*tdb.Col, error) {
+func Use(s string, idx []string) (*tdb.Col, error) {
 	var col *tdb.Col
 
 	col = db.Use(s)
@@ -44,54 +44,64 @@ func Use(s string) (*tdb.Col, error) {
 		col = db.Use(s)
 	}
 
+	col.Index(idx)
+
 	return col, nil
 }
 
 func SaveEvents(events []*Event) error {
-	col, err := Use("events")
+	col, err := Use("events", []string{"Title"})
 	if err != nil {
 		return err
-	}
-
-	if len(col.AllIndexes()) == 0 {
-		for i := range events {
-			ev := events[i]
-			log.WithField("title", ev.Title).Info("event added")
-			col.Insert(map[string]interface{}{
-				"Title": ev.Title,
-				"URL":   ev.URL,
-				"Date":  ev.Date,
-			})
-		}
-
-		col.Index([]string{"Title"})
-		return nil
 	}
 
 	var q interface{}
 
 	for i := range events {
 		ev := events[i]
+		ev.SumHash()
+
 		json.Unmarshal([]byte(fmt.Sprintf(`{"eq": %q, "in": ["Title"], "limit": 1}`, ev.Title)), &q)
 		result := make(map[int]struct{})
 		tdb.EvalQuery(q, col, &result)
 
 		if len(result) == 0 {
-			log.WithField("title", ev.Title).Info("event added")
-			col.Insert(map[string]interface{}{
+			_, err := col.Insert(map[string]interface{}{
 				"Title": ev.Title,
 				"URL":   ev.URL,
 				"Date":  ev.Date,
+				"Hash":  ev.Hash,
 			})
+
+			if err == nil {
+				log.WithField("title", ev.Title).Info("event added")
+			}
+		} else {
+			for id := range result {
+				doc, err := col.Read(id)
+				if err == nil {
+					if ev.Hash != doc["Hash"].(string) {
+						err := col.Update(id, map[string]interface{}{
+							"Title": ev.Title,
+							"URL":   ev.URL,
+							"Date":  ev.Date,
+							"Hash":  ev.Hash,
+						})
+
+						if err == nil {
+							log.WithField("title", ev.Title).Info("event updated")
+						}
+					}
+				}
+			}
 		}
 	}
 
-	col.Index([]string{"Title"})
 	return nil
 }
 
 func OpenEvent(title string) (ev *Event, err error) {
-	col, err := Use("events")
+	col, err := Use("events", []string{"Title"})
 	if err != nil {
 		return
 	}
@@ -116,10 +126,11 @@ func OpenEvent(title string) (ev *Event, err error) {
 		ev = &Event{}
 		ev.Title = doc["Title"].(string)
 		ev.URL = doc["URL"].(string)
+		ev.Hash = doc["Hash"].(string)
 		ev.ID = id
 
 		var pcol *tdb.Col
-		pcol, err = Use("presentations")
+		pcol, err = Use("presentations", []string{"EventTitle"})
 		if err != nil {
 			return
 		}
@@ -181,7 +192,7 @@ func (d byDate) Swap(i, j int)      { d[i], d[j] = d[j], d[i] }
 func (d byDate) Less(i, j int) bool { return d[i].Date.After(d[j].Date) }
 
 func AllEvents() (events []*Event, err error) {
-	col, err := Use("events")
+	col, err := Use("events", []string{"Title"})
 	if err != nil {
 		return
 	}
@@ -202,7 +213,7 @@ func AllEvents() (events []*Event, err error) {
 }
 
 func SavePresentations(presentations []*Presentation) error {
-	col, err := Use("presentations")
+	col, err := Use("presentations", []string{"EventTitle"})
 	if err != nil {
 		return err
 	}
