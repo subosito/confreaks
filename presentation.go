@@ -13,7 +13,8 @@ type Presentation struct {
 	VideoURL    string    `json:"video-url"`
 	URL         string    `json:"url"`
 	Recorded    time.Time `json:"recorded"`
-	EventTitle  string    `json:"-"`
+	Hash        string    `json:"Hash"`
+	EUID        string    `json:"-"`
 }
 
 func (p *Presentation) FetchDetails() error {

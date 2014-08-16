@@ -2,6 +2,7 @@ package confreaks
 
 import (
 	"code.google.com/p/cascadia"
+	"code.google.com/p/go-uuid/uuid"
 	"code.google.com/p/go.net/html"
 	"io"
 	"net/url"
@@ -20,6 +21,7 @@ func ParseEvents(r io.Reader) (events []*Event, err error) {
 	eventSel := cascadia.MustCompile("li.event-box")
 	for _, dom := range eventSel.MatchAll(doc) {
 		ev := &Event{}
+		ev.UUID = uuid.NewUUID().String()
 
 		linkSelector := cascadia.MustCompile("span.small > strong > a")
 		link := linkSelector.MatchFirst(dom)
@@ -44,7 +46,7 @@ func ParseEvents(r io.Reader) (events []*Event, err error) {
 		num := numSelector.MatchFirst(dom)
 		nstr := strings.Split(strings.TrimSpace(num.FirstChild.Data), "\n")
 		if n, err := strconv.Atoi(nstr[0]); err == nil {
-			ev.NumPresentations = n
+			ev.Count = int32(n)
 		}
 
 		events = append(events, ev)

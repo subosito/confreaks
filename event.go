@@ -12,13 +12,13 @@ import (
 )
 
 type Event struct {
-	ID               int             `json:"-"`
-	Title            string          `json:"Title"`
-	URL              string          `json:"URL"`
-	Hash             string          `json:"Hash"`
-	Date             time.Time       `json:"Date"`
-	NumPresentations int             `json:"NumPresentations"`
-	Presentations    []*Presentation `json:"presentations,omitempty"`
+	UUID          string          `json:"UUID"`
+	Title         string          `json:"Title"`
+	URL           string          `json:"URL"`
+	Hash          string          `json:"Hash"`
+	Date          time.Time       `json:"Date"`
+	Count         int32           `json:"Count"`
+	Presentations []*Presentation `json:"presentations,omitempty"`
 }
 
 func (e *Event) SumHash() string {
@@ -26,7 +26,7 @@ func (e *Event) SumHash() string {
 	io.WriteString(h, e.Title)
 	io.WriteString(h, e.URL)
 	io.WriteString(h, e.Date.String())
-	io.WriteString(h, strconv.Itoa(e.NumPresentations))
+	io.WriteString(h, strconv.Itoa(int(e.Count)))
 
 	e.Hash = fmt.Sprintf("%x", h.Sum(nil))
 	return e.Hash
@@ -50,12 +50,13 @@ func (e *Event) FetchPresentations() error {
 		wg.Add(1)
 		go func() {
 			for p := range tasks {
+				p.EUID = e.UUID
+
 				for x := 0; ; x++ {
 					log.WithField("presentation", p.Title).Debug("fetching")
 
 					err := p.FetchDetails()
 					if err == nil {
-						p.EventTitle = e.Title
 						log.WithField("presentation", p.Title).Debug("fetched")
 						break
 					} else {

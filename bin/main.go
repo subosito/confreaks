@@ -2,14 +2,16 @@ package main
 
 import (
 	"fmt"
+	log "github.com/Sirupsen/logrus"
 	tm "github.com/buger/goterm"
 	"github.com/codegangsta/cli"
 	"github.com/subosito/confreaks"
-	"log"
 	"os"
 )
 
 func init() {
+	log.SetLevel(log.DebugLevel)
+
 	cli.AppHelpTemplate = `NAME:
   {{.Name}} ({{.Version}}) - {{.Usage}}
 
@@ -54,11 +56,11 @@ func main() {
 
 		box := tm.NewBox(50|tm.PCT, 75|tm.PCT, 0)
 		et := tm.NewTable(0, 10, 5, ' ', 0)
-		fmt.Fprint(et, "NO\tDATE EVENT\tEVENT TITLE\n")
+		fmt.Fprint(et, "NO\tDATE EVENT\tPRESENTATIONS\tEVENT TITLE\n")
 
 		for i := range events {
 			ev := events[i]
-			fmt.Fprintf(et, "%d\t%s\t%s\n", i+1, ev.Date.Format("Jan 02, 2006"), ev.Title)
+			fmt.Fprintf(et, "%d\t%s\t%d\t%s\n", i+1, ev.Date.Format("Jan 02, 2006"), ev.Count, ev.Title)
 		}
 
 		fmt.Fprintf(box, et.String())
@@ -120,20 +122,21 @@ func main() {
 
 		ev, _ := confreaks.OpenEvent(pattern)
 
-		fmt.Println(ev.Title)
+		log.WithField("title", ev.Title).Info("event")
 
 		err = os.MkdirAll(ev.Title, 0755)
 		if err != nil {
-			log.Fatal(err.Error())
+			log.Fatal(err)
 		}
 
 		for x := range ev.Presentations {
 			p := ev.Presentations[x]
 
-			log.Printf(" +-- Downloading %s (%s)\n", p.Title, p.VideoURL)
+			log.WithFields(log.Fields{"presentation": p.Title, "video-url": p.VideoURL}).Info("downloading")
+
 			err = p.DownloadVideo(ev.Title)
 			if err != nil {
-				log.Printf(" !! unable to download video for %q\n", p.Title)
+				log.WithFields(log.Fields{"presentation": p.Title, "video-url": p.VideoURL}).Info("download failed")
 			}
 		}
 	}

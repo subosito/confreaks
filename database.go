@@ -23,15 +23,11 @@ func OpenDB(dbPath string) error {
 	return nil
 }
 
-func DB() *tdb.DB {
-	return db
-}
-
 func CloseDB() error {
 	return db.Close()
 }
 
-func Use(s string, idx []string) (*tdb.Col, error) {
+func Use(s string) (*tdb.Col, error) {
 	var col *tdb.Col
 
 	col = db.Use(s)
@@ -44,13 +40,18 @@ func Use(s string, idx []string) (*tdb.Col, error) {
 		col = db.Use(s)
 	}
 
-	col.Index(idx)
+	switch s {
+	case "events":
+		col.Index([]string{"Title"})
+	case "presentations":
+		col.Index([]string{"EUID"})
+	}
 
 	return col, nil
 }
 
 func SaveEvents(events []*Event) error {
-	col, err := Use("events", []string{"Title"})
+	col, err := Use("events")
 	if err != nil {
 		return err
 	}
@@ -67,10 +68,12 @@ func SaveEvents(events []*Event) error {
 
 		if len(result) == 0 {
 			_, err := col.Insert(map[string]interface{}{
+				"UUID":  ev.UUID,
 				"Title": ev.Title,
 				"URL":   ev.URL,
 				"Date":  ev.Date,
 				"Hash":  ev.Hash,
+				"Count": ev.Count,
 			})
 
 			if err == nil {
@@ -82,10 +85,12 @@ func SaveEvents(events []*Event) error {
 				if err == nil {
 					if ev.Hash != doc["Hash"].(string) {
 						err := col.Update(id, map[string]interface{}{
+							"UUID":  ev.UUID,
 							"Title": ev.Title,
 							"URL":   ev.URL,
 							"Date":  ev.Date,
 							"Hash":  ev.Hash,
+							"Count": ev.Count,
 						})
 
 						if err == nil {
@@ -101,7 +106,7 @@ func SaveEvents(events []*Event) error {
 }
 
 func OpenEvent(title string) (ev *Event, err error) {
-	col, err := Use("events", []string{"Title"})
+	col, err := Use("events")
 	if err != nil {
 		return
 	}
@@ -127,17 +132,21 @@ func OpenEvent(title string) (ev *Event, err error) {
 		ev.Title = doc["Title"].(string)
 		ev.URL = doc["URL"].(string)
 		ev.Hash = doc["Hash"].(string)
-		ev.ID = id
+		ev.UUID = doc["UUID"].(string)
+		ev.Count = int32(doc["Count"].(float64))
 
 		var pcol *tdb.Col
-		pcol, err = Use("presentations", []string{"EventTitle"})
+		pcol, err = Use("presentations")
 		if err != nil {
 			return
 		}
 
 		var pq interface{}
 
-		json.Unmarshal([]byte(fmt.Sprintf(`{"eq": %q, "in": ["EventTitle"]}`, ev.Title)), &pq)
+		err = json.Unmarshal([]byte(fmt.Sprintf(`{"eq": %q, "in": ["EUID"]}`, ev.UUID)), &pq)
+		if err != nil {
+			return
+		}
 
 		presult := make(map[int]struct{})
 		err = tdb.EvalQuery(pq, pcol, &presult)
@@ -158,7 +167,7 @@ func OpenEvent(title string) (ev *Event, err error) {
 			p.Description = pdoc["Description"].(string)
 			p.VideoURL = pdoc["VideoURL"].(string)
 			p.URL = pdoc["URL"].(string)
-			p.EventTitle = pdoc["EventTitle"].(string)
+			p.EUID = pdoc["EUID"].(string)
 
 			pp := reflect.ValueOf(pdoc["Presenters"])
 			if pp.Kind() == reflect.Slice {
@@ -192,7 +201,7 @@ func (d byDate) Swap(i, j int)      { d[i], d[j] = d[j], d[i] }
 func (d byDate) Less(i, j int) bool { return d[i].Date.After(d[j].Date) }
 
 func AllEvents() (events []*Event, err error) {
-	col, err := Use("events", []string{"Title"})
+	col, err := Use("events")
 	if err != nil {
 		return
 	}
@@ -213,25 +222,27 @@ func AllEvents() (events []*Event, err error) {
 }
 
 func SavePresentations(presentations []*Presentation) error {
-	col, err := Use("presentations", []string{"EventTitle"})
+	col, err := Use("presentations")
 	if err != nil {
 		return err
 	}
 
 	for i := range presentations {
 		p := presentations[i]
-		log.WithField("title", p.Title).Info("presentation added")
-		col.Insert(map[string]interface{}{
+		_, err := col.Insert(map[string]interface{}{
 			"Title":       p.Title,
 			"Description": p.Description,
 			"Presenters":  p.Presenters,
 			"VideoURL":    p.VideoURL,
 			"URL":         p.URL,
 			"Recorded":    p.Recorded,
-			"EventTitle":  p.EventTitle,
+			"EUID":        p.EUID,
 		})
+
+		if err == nil {
+			log.WithField("title", p.Title).Info("presentation added")
+		}
 	}
 
-	col.Index([]string{"EventTitle"})
 	return nil
 }
