@@ -44,6 +44,7 @@ func Use(s string) (*tdb.Col, error) {
 	case "events":
 		col.Index([]string{"Title"})
 	case "presentations":
+		col.Index([]string{"Title"})
 		col.Index([]string{"EUID"})
 	}
 
@@ -134,61 +135,64 @@ func OpenEvent(title string) (ev *Event, err error) {
 		ev.Hash = doc["Hash"].(string)
 		ev.UUID = doc["UUID"].(string)
 		ev.Count = int32(doc["Count"].(float64))
-
-		var pcol *tdb.Col
-		pcol, err = Use("presentations")
-		if err != nil {
-			return
-		}
-
-		var pq interface{}
-
-		err = json.Unmarshal([]byte(fmt.Sprintf(`{"eq": %q, "in": ["EUID"]}`, ev.UUID)), &pq)
-		if err != nil {
-			return
-		}
-
-		presult := make(map[int]struct{})
-		err = tdb.EvalQuery(pq, pcol, &presult)
-		if err != nil {
-			return
-		}
-
-		for pid := range presult {
-			var pdoc map[string]interface{}
-
-			pdoc, err = pcol.Read(pid)
-			if err != nil {
-				return
-			}
-
-			p := &Presentation{}
-			p.Title = pdoc["Title"].(string)
-			p.Description = pdoc["Description"].(string)
-			p.VideoURL = pdoc["VideoURL"].(string)
-			p.URL = pdoc["URL"].(string)
-			p.EUID = pdoc["EUID"].(string)
-
-			pp := reflect.ValueOf(pdoc["Presenters"])
-			if pp.Kind() == reflect.Slice {
-				ps := make([]string, pp.Len())
-
-				for i := 0; i < pp.Len(); i++ {
-					name := pp.Index(i).Interface().(string)
-					ps = append(ps, strings.TrimSpace(name))
-				}
-
-				p.Presenters = ps
-			}
-
-			tf := "2006-01-02T15:04:05Z"
-			tt, _ := time.Parse(tf, pdoc["Recorded"].(string))
-			p.Recorded = tt
-
-			ev.Presentations = append(ev.Presentations, p)
-		}
-
 		return
+	}
+
+	return
+}
+
+func LoadEventPresentations(ev *Event) (err error) {
+	var pcol *tdb.Col
+	pcol, err = Use("presentations")
+	if err != nil {
+		return
+	}
+
+	var pq interface{}
+
+	err = json.Unmarshal([]byte(fmt.Sprintf(`{"eq": %q, "in": ["EUID"]}`, ev.UUID)), &pq)
+	if err != nil {
+		return
+	}
+
+	presult := make(map[int]struct{})
+	err = tdb.EvalQuery(pq, pcol, &presult)
+	if err != nil {
+		return
+	}
+
+	for pid := range presult {
+		var pdoc map[string]interface{}
+
+		pdoc, err = pcol.Read(pid)
+		if err != nil {
+			return
+		}
+
+		p := &Presentation{}
+		p.Title = pdoc["Title"].(string)
+		p.Description = pdoc["Description"].(string)
+		p.VideoURL = pdoc["VideoURL"].(string)
+		p.URL = pdoc["URL"].(string)
+		p.EUID = pdoc["EUID"].(string)
+
+		pp := reflect.ValueOf(pdoc["Presenters"])
+		if pp.Kind() == reflect.Slice {
+			ps := make([]string, pp.Len())
+
+			for i := 0; i < pp.Len(); i++ {
+				name := pp.Index(i).Interface().(string)
+				ps = append(ps, strings.TrimSpace(name))
+			}
+
+			p.Presenters = ps
+		}
+
+		tf := "2006-01-02T15:04:05Z"
+		tt, _ := time.Parse(tf, pdoc["Recorded"].(string))
+		p.Recorded = tt
+
+		ev.Presentations = append(ev.Presentations, p)
 	}
 
 	return
@@ -221,26 +225,59 @@ func AllEvents() (events []*Event, err error) {
 	return
 }
 
-func SavePresentations(presentations []*Presentation) error {
+func SavePresentations(ev *Event, presentations []*Presentation) (err error) {
 	col, err := Use("presentations")
 	if err != nil {
-		return err
+		return
 	}
 
 	for i := range presentations {
 		p := presentations[i]
-		_, err := col.Insert(map[string]interface{}{
-			"Title":       p.Title,
-			"Description": p.Description,
-			"Presenters":  p.Presenters,
-			"VideoURL":    p.VideoURL,
-			"URL":         p.URL,
-			"Recorded":    p.Recorded,
-			"EUID":        p.EUID,
-		})
 
-		if err == nil {
-			log.WithField("title", p.Title).Info("presentation added")
+		var pq interface{}
+
+		err = json.Unmarshal([]byte(fmt.Sprintf(`[{"eq": %q, "in": ["Title"]},{"eq": %q, "in": ["EUID"]}]`, p.Title, ev.UUID)), &pq)
+		if err != nil {
+			return
+		}
+
+		presult := make(map[int]struct{})
+		err = tdb.EvalQuery(pq, col, &presult)
+		if err != nil {
+			return
+		}
+
+		if len(presult) == 0 {
+			_, err := col.Insert(map[string]interface{}{
+				"Title":       p.Title,
+				"Description": p.Description,
+				"Presenters":  p.Presenters,
+				"VideoURL":    p.VideoURL,
+				"URL":         p.URL,
+				"Recorded":    p.Recorded,
+				"EUID":        p.EUID,
+			})
+
+			if err == nil {
+				log.WithField("title", p.Title).Info("presentation added")
+			}
+		} else {
+			for pid := range presult {
+
+				err := col.Update(pid, map[string]interface{}{
+					"Title":       p.Title,
+					"Description": p.Description,
+					"Presenters":  p.Presenters,
+					"VideoURL":    p.VideoURL,
+					"URL":         p.URL,
+					"Recorded":    p.Recorded,
+					"EUID":        p.EUID,
+				})
+
+				if err == nil {
+					log.WithField("title", p.Title).Info("presentation updated")
+				}
+			}
 		}
 	}
 

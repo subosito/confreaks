@@ -173,3 +173,13 @@ func ParsePresentation(r io.Reader, p *Presentation) error {
 
 	return nil
 }
+
+func attrVal(n *html.Node, k string) string {
+	for _, a := range n.Attr {
+		if a.Key == k {
+			return a.Val
+		}
+	}
+
+	return ""
+}

@@ -2,7 +2,6 @@ package confreaks
 
 import (
 	"bytes"
-	"code.google.com/p/go.net/html"
 	"errors"
 	"fmt"
 	"io/ioutil"
@@ -33,16 +32,6 @@ func fetch(uri string) ([]byte, error) {
 	}
 
 	return b, nil
-}
-
-func attrVal(n *html.Node, k string) string {
-	for _, a := range n.Attr {
-		if a.Key == k {
-			return a.Val
-		}
-	}
-
-	return ""
 }
 
 func downloadVideo(u, dir string) error {

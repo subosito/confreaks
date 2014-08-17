@@ -28,10 +28,11 @@ func TestParseEvents(t *testing.T) {
 	// test last item of events
 	event := events[count-1]
 	ex := &Event{
-		Title:            "MountainWest RubyConf 2007",
-		URL:              "http://confreaks.com/events/mwrc2007",
-		Date:             time.Date(2007, time.March, 16, 0, 0, 0, 0, time.UTC),
-		NumPresentations: 12,
+		UUID:  event.UUID,
+		Title: "MountainWest RubyConf 2007",
+		URL:   "http://confreaks.com/events/mwrc2007",
+		Date:  time.Date(2007, time.March, 16, 0, 0, 0, 0, time.UTC),
+		Count: 12,
 	}
 
 	if !reflect.DeepEqual(event, ex) {

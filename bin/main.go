@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	log "github.com/Sirupsen/logrus"
+	"github.com/Sirupsen/logrus"
 	tm "github.com/buger/goterm"
 	"github.com/codegangsta/cli"
 	"github.com/subosito/confreaks"
@@ -10,8 +10,6 @@ import (
 )
 
 func init() {
-	log.SetLevel(log.DebugLevel)
-
 	cli.AppHelpTemplate = `NAME:
   {{.Name}} ({{.Version}}) - {{.Usage}}
 
@@ -30,6 +28,10 @@ GLOBAL OPTIONS:
 
 func main() {
 	var err error
+
+	log := logrus.New()
+	log.Level = logrus.DebugLevel
+	confreaks.SetLogger(log)
 
 	err = confreaks.OpenDB("_db_")
 	if err != nil {
@@ -83,7 +85,7 @@ func main() {
 			log.Println(err)
 		}
 
-		err = confreaks.SavePresentations(ev.Presentations)
+		err = confreaks.SavePresentations(ev, ev.Presentations)
 		if err != nil {
 			log.Println(err)
 		}
@@ -110,7 +112,7 @@ func main() {
 				log.Println(err)
 			}
 
-			err = confreaks.SavePresentations(ev.Presentations)
+			err = confreaks.SavePresentations(ev, ev.Presentations)
 			if err != nil {
 				log.Println(err)
 			}
@@ -129,15 +131,20 @@ func main() {
 			log.Fatal(err)
 		}
 
+		err = confreaks.LoadEventPresentations(ev)
+		if err != nil {
+			log.Fatal(err)
+		}
+
 		for x := range ev.Presentations {
 			p := ev.Presentations[x]
 
-			log.WithFields(log.Fields{"presentation": p.Title, "video-url": p.VideoURL}).Info("downloading")
+			log.WithFields(logrus.Fields{"presentation": p.Title, "video-url": p.VideoURL}).Info("downloading")
 
-			err = p.DownloadVideo(ev.Title)
-			if err != nil {
-				log.WithFields(log.Fields{"presentation": p.Title, "video-url": p.VideoURL}).Info("download failed")
-			}
+			// err = p.DownloadVideo(ev.Title)
+			// if err != nil {
+			// 	log.WithFields(logrus.Fields{"presentation": p.Title, "video-url": p.VideoURL}).Info("download failed")
+			// }
 		}
 	}
 
