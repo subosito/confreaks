@@ -175,6 +175,7 @@ func LoadEventPresentations(ev *Event) (err error) {
 		p.VideoURL = pdoc["VideoURL"].(string)
 		p.URL = pdoc["URL"].(string)
 		p.EUID = pdoc["EUID"].(string)
+		p.Hash = pdoc["Hash"].(string)
 
 		pp := reflect.ValueOf(pdoc["Presenters"])
 		if pp.Kind() == reflect.Slice {
@@ -233,10 +234,11 @@ func SavePresentations(ev *Event, presentations []*Presentation) (err error) {
 
 	for i := range presentations {
 		p := presentations[i]
+		p.SumHash()
 
 		var pq interface{}
 
-		err = json.Unmarshal([]byte(fmt.Sprintf(`[{"eq": %q, "in": ["Title"]},{"eq": %q, "in": ["EUID"]}]`, p.Title, ev.UUID)), &pq)
+		err = json.Unmarshal([]byte(fmt.Sprintf(`{"n":[{"eq": %q, "in": ["Title"]},{"eq": %q, "in": ["EUID"]}]}`, p.Title, ev.UUID)), &pq)
 		if err != nil {
 			return
 		}
@@ -256,6 +258,7 @@ func SavePresentations(ev *Event, presentations []*Presentation) (err error) {
 				"URL":         p.URL,
 				"Recorded":    p.Recorded,
 				"EUID":        p.EUID,
+				"Hash":        p.Hash,
 			})
 
 			if err == nil {
@@ -263,19 +266,26 @@ func SavePresentations(ev *Event, presentations []*Presentation) (err error) {
 			}
 		} else {
 			for pid := range presult {
-
-				err := col.Update(pid, map[string]interface{}{
-					"Title":       p.Title,
-					"Description": p.Description,
-					"Presenters":  p.Presenters,
-					"VideoURL":    p.VideoURL,
-					"URL":         p.URL,
-					"Recorded":    p.Recorded,
-					"EUID":        p.EUID,
-				})
-
+				doc, err := col.Read(pid)
 				if err == nil {
-					log.WithField("title", p.Title).Info("presentation updated")
+					if p.Hash != doc["Hash"].(string) {
+						err := col.Update(pid, map[string]interface{}{
+							"Title":       p.Title,
+							"Description": p.Description,
+							"Presenters":  p.Presenters,
+							"VideoURL":    p.VideoURL,
+							"URL":         p.URL,
+							"Recorded":    p.Recorded,
+							"EUID":        p.EUID,
+							"Hash":        p.Hash,
+						})
+
+						if err == nil {
+							log.WithField("title", p.Title).Info("presentation updated")
+						}
+					} else {
+						log.WithField("title", p.Title).Info("presentation ok")
+					}
 				}
 			}
 		}
