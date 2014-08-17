@@ -67,17 +67,10 @@ func SaveEvents(events []*Event) error {
 		result := make(map[int]struct{})
 		tdb.EvalQuery(q, col, &result)
 
-		if len(result) == 0 {
-			_, err := col.Insert(map[string]interface{}{
-				"UUID":  ev.UUID,
-				"Title": ev.Title,
-				"URL":   ev.URL,
-				"Date":  ev.Date,
-				"Hash":  ev.Hash,
-				"Count": ev.Count,
-			})
+		data := docFromEvent(ev)
 
-			if err == nil {
+		if len(result) == 0 {
+			if _, err := col.Insert(data); err == nil {
 				log.WithField("title", ev.Title).Info("event added")
 			}
 		} else {
@@ -85,16 +78,7 @@ func SaveEvents(events []*Event) error {
 				doc, err := col.Read(id)
 				if err == nil {
 					if ev.Hash != doc["Hash"].(string) {
-						err := col.Update(id, map[string]interface{}{
-							"UUID":  ev.UUID,
-							"Title": ev.Title,
-							"URL":   ev.URL,
-							"Date":  ev.Date,
-							"Hash":  ev.Hash,
-							"Count": ev.Count,
-						})
-
-						if err == nil {
+						if err := col.Update(id, data); err == nil {
 							log.WithField("title", ev.Title).Info("event updated")
 						}
 					}
@@ -129,12 +113,7 @@ func OpenEvent(title string) (ev *Event, err error) {
 			return
 		}
 
-		ev = &Event{}
-		ev.Title = doc["Title"].(string)
-		ev.URL = doc["URL"].(string)
-		ev.Hash = doc["Hash"].(string)
-		ev.UUID = doc["UUID"].(string)
-		ev.Count = int32(doc["Count"].(float64))
+		ev = eventFromDoc(doc)
 		return
 	}
 
@@ -169,30 +148,7 @@ func LoadEventPresentations(ev *Event) (err error) {
 			return
 		}
 
-		p := &Presentation{}
-		p.Title = pdoc["Title"].(string)
-		p.Description = pdoc["Description"].(string)
-		p.VideoURL = pdoc["VideoURL"].(string)
-		p.URL = pdoc["URL"].(string)
-		p.EUID = pdoc["EUID"].(string)
-		p.Hash = pdoc["Hash"].(string)
-
-		pp := reflect.ValueOf(pdoc["Presenters"])
-		if pp.Kind() == reflect.Slice {
-			ps := make([]string, pp.Len())
-
-			for i := 0; i < pp.Len(); i++ {
-				name := pp.Index(i).Interface().(string)
-				ps = append(ps, strings.TrimSpace(name))
-			}
-
-			p.Presenters = ps
-		}
-
-		tf := "2006-01-02T15:04:05Z"
-		tt, _ := time.Parse(tf, pdoc["Recorded"].(string))
-		p.Recorded = tt
-
+		p := presentationFromDoc(pdoc)
 		ev.Presentations = append(ev.Presentations, p)
 	}
 
@@ -249,19 +205,10 @@ func SavePresentations(ev *Event, presentations []*Presentation) (err error) {
 			return
 		}
 
-		if len(presult) == 0 {
-			_, err := col.Insert(map[string]interface{}{
-				"Title":       p.Title,
-				"Description": p.Description,
-				"Presenters":  p.Presenters,
-				"VideoURL":    p.VideoURL,
-				"URL":         p.URL,
-				"Recorded":    p.Recorded,
-				"EUID":        p.EUID,
-				"Hash":        p.Hash,
-			})
+		data := docFromPresentation(p)
 
-			if err == nil {
+		if len(presult) == 0 {
+			if _, err := col.Insert(data); err == nil {
 				log.WithField("title", p.Title).Info("presentation added")
 			}
 		} else {
@@ -269,18 +216,7 @@ func SavePresentations(ev *Event, presentations []*Presentation) (err error) {
 				doc, err := col.Read(pid)
 				if err == nil {
 					if p.Hash != doc["Hash"].(string) {
-						err := col.Update(pid, map[string]interface{}{
-							"Title":       p.Title,
-							"Description": p.Description,
-							"Presenters":  p.Presenters,
-							"VideoURL":    p.VideoURL,
-							"URL":         p.URL,
-							"Recorded":    p.Recorded,
-							"EUID":        p.EUID,
-							"Hash":        p.Hash,
-						})
-
-						if err == nil {
+						if err := col.Update(pid, data); err == nil {
 							log.WithField("title", p.Title).Info("presentation updated")
 						}
 					} else {
@@ -292,4 +228,68 @@ func SavePresentations(ev *Event, presentations []*Presentation) (err error) {
 	}
 
 	return nil
+}
+
+func eventFromDoc(doc map[string]interface{}) *Event {
+	ev := &Event{}
+	ev.Title = doc["Title"].(string)
+	ev.URL = doc["URL"].(string)
+	ev.Hash = doc["Hash"].(string)
+	ev.UUID = doc["UUID"].(string)
+	ev.Count = int32(doc["Count"].(float64))
+
+	return ev
+}
+
+func presentationFromDoc(doc map[string]interface{}) *Presentation {
+	p := &Presentation{}
+	p.Title = doc["Title"].(string)
+	p.Description = doc["Description"].(string)
+	p.VideoURL = doc["VideoURL"].(string)
+	p.URL = doc["URL"].(string)
+	p.EUID = doc["EUID"].(string)
+	p.Hash = doc["Hash"].(string)
+
+	pp := reflect.ValueOf(doc["Presenters"])
+	if pp.Kind() == reflect.Slice {
+		ps := make([]string, pp.Len())
+
+		for i := 0; i < pp.Len(); i++ {
+			name := pp.Index(i).Interface().(string)
+			ps = append(ps, strings.TrimSpace(name))
+		}
+
+		p.Presenters = ps
+	}
+
+	t, err := time.Parse("2006-01-02T15:04:05Z", doc["Recorded"].(string))
+	if err == nil {
+		p.Recorded = t
+	}
+
+	return p
+}
+
+func docFromPresentation(p *Presentation) map[string]interface{} {
+	return map[string]interface{}{
+		"Title":       p.Title,
+		"Description": p.Description,
+		"Presenters":  p.Presenters,
+		"VideoURL":    p.VideoURL,
+		"URL":         p.URL,
+		"Recorded":    p.Recorded,
+		"EUID":        p.EUID,
+		"Hash":        p.Hash,
+	}
+}
+
+func docFromEvent(ev *Event) map[string]interface{} {
+	return map[string]interface{}{
+		"UUID":  ev.UUID,
+		"Title": ev.Title,
+		"URL":   ev.URL,
+		"Date":  ev.Date,
+		"Hash":  ev.Hash,
+		"Count": ev.Count,
+	}
 }
