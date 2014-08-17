@@ -7,6 +7,7 @@ import (
 	"github.com/codegangsta/cli"
 	"github.com/subosito/confreaks"
 	"os"
+	"strings"
 )
 
 func init() {
@@ -119,6 +120,38 @@ func main() {
 		}
 	}
 
+	info := func(pattern string) {
+		var err error
+
+		ev, _ := confreaks.OpenEvent(pattern)
+
+		err = os.MkdirAll(ev.Title, 0755)
+		if err != nil {
+			log.Fatal(err)
+		}
+
+		err = confreaks.LoadEventPresentations(ev)
+		if err != nil {
+			log.Fatal(err)
+		}
+
+		log.Printf("Event:\t%s", ev.Title)
+		log.Printf("Date:\t%s", ev.Date.Format("Jan 02, 2006"))
+		log.Printf("Count:\t%d", ev.Count)
+		log.Printf("Event URL:\t%s", ev.URL)
+
+		et := tm.NewTable(0, 10, 5, ' ', 0)
+		fmt.Fprint(et, "NO\tPRESENTATION TITLE\tPRESENTERS\n")
+
+		for x := range ev.Presentations {
+			p := ev.Presentations[x]
+
+			fmt.Fprintf(et, "%d\t%s\t%s\n", x+1, p.Title, strings.Join(p.Presenters, ", "))
+		}
+
+		log.Printf("\n%s", et.String())
+	}
+
 	download := func(pattern string) {
 		var err error
 
@@ -179,6 +212,13 @@ func main() {
 			Usage: "sync all events",
 			Action: func(cc *cli.Context) {
 				syncAll()
+			},
+		},
+		{
+			Name:  "info",
+			Usage: "event info [EVENT TITLE]",
+			Action: func(cc *cli.Context) {
+				info(cc.Args().First())
 			},
 		},
 		{

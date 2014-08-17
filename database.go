@@ -252,7 +252,7 @@ func presentationFromDoc(doc map[string]interface{}) *Presentation {
 
 	pp := reflect.ValueOf(doc["Presenters"])
 	if pp.Kind() == reflect.Slice {
-		ps := make([]string, pp.Len())
+		ps := []string{}
 
 		for i := 0; i < pp.Len(); i++ {
 			name := pp.Index(i).Interface().(string)
