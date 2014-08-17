@@ -26,7 +26,11 @@ func ParseEvents(r io.Reader) (events []*Event, err error) {
 		linkSelector := cascadia.MustCompile("span.small > strong > a")
 		link := linkSelector.MatchFirst(dom)
 		ev.Title = strings.TrimSpace(link.LastChild.Data)
-		ev.URL = relativePath(attrVal(link, "href")).String()
+
+		uri, err := resolveURI(attrVal(link, "href"))
+		if err == nil {
+			ev.URL = uri.String()
+		}
 
 		dateSelector := cascadia.MustCompile("span.small > a")
 		date := dateSelector.MatchFirst(dom)
@@ -79,7 +83,11 @@ func ParseEvent(r io.Reader, event *Event) error {
 		linkSelector := cascadia.MustCompile(".title a")
 		link := linkSelector.MatchFirst(info)
 		p.Title = strings.TrimSpace(link.LastChild.Data)
-		p.URL = relativePath(attrVal(link, "href")).String()
+
+		uri, err := resolveURI(attrVal(link, "href"))
+		if err == nil {
+			p.URL = uri.String()
+		}
 
 		presentersSelector := cascadia.MustCompile(".presenters a")
 		presenters := []string{}

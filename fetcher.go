@@ -12,7 +12,7 @@ func FetchEvents() (events []*Event, err error) {
 }
 
 func fetchEvents() (events []*Event, err error) {
-	b, err := fetch(relativePath("events").String())
+	b, err := fetch("/events")
 	if err != nil {
 		return
 	}
@@ -38,15 +38,28 @@ func fetchPresentation(u string, p *Presentation) error {
 	return ParsePresentation(bytes.NewReader(b), p)
 }
 
-func relativePath(pathStr string) *url.URL {
+func resolveURI(s string) (*url.URL, error) {
 	uri, _ := url.Parse("http://confreaks.com/")
-	uri.Path = pathStr
 
-	return uri
+	urs, err := url.Parse(s)
+	if err != nil {
+		return &url.URL{}, err
+	}
+
+	// reset scheme and host
+	urs.Scheme = ""
+	urs.Host = ""
+
+	return uri.ResolveReference(urs), nil
 }
 
-func fetch(uri string) ([]byte, error) {
-	res, err := http.Get(uri)
+func fetch(u string) ([]byte, error) {
+	uri, err := resolveURI(u)
+	if err != nil {
+		return []byte{}, err
+	}
+
+	res, err := http.Get(uri.String())
 	if err != nil {
 		return nil, err
 	}
