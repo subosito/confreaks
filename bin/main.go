@@ -141,10 +141,10 @@ func main() {
 
 			log.WithFields(logrus.Fields{"presentation": p.Title, "video-url": p.VideoURL}).Info("downloading")
 
-			// err = p.DownloadVideo(ev.Title)
-			// if err != nil {
-			// 	log.WithFields(logrus.Fields{"presentation": p.Title, "video-url": p.VideoURL}).Info("download failed")
-			// }
+			err = p.DownloadVideo(ev.Title)
+			if err != nil {
+				log.WithFields(logrus.Fields{"presentation": p.Title, "video-url": p.VideoURL}).Info("download failed")
+			}
 		}
 	}
 

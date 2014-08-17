@@ -1,10 +1,8 @@
 package confreaks
 
 import (
-	"bytes"
 	"crypto/sha1"
 	"fmt"
-	"github.com/Sirupsen/logrus"
 	"io"
 	"strconv"
 	"sync"
@@ -33,13 +31,7 @@ func (e *Event) SumHash() string {
 }
 
 func (e *Event) FetchDetails() error {
-	b, err := fetch(e.URL)
-	if err != nil {
-		log.WithFields(logrus.Fields{"event": e.Title, "error": err.Error()}).Info("fetch error")
-		return err
-	}
-
-	return ParseEvent(bytes.NewReader(b), e)
+	return fetchEvent(e.URL, e)
 }
 
 func (e *Event) FetchPresentations() error {

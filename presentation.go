@@ -1,7 +1,6 @@
 package confreaks
 
 import (
-	"bytes"
 	"fmt"
 	"time"
 )
@@ -18,12 +17,7 @@ type Presentation struct {
 }
 
 func (p *Presentation) FetchDetails() error {
-	b, err := fetch(p.URL)
-	if err != nil {
-		return err
-	}
-
-	return ParsePresentation(bytes.NewReader(b), p)
+	return fetchPresentation(p.URL, p)
 }
 
 func (p *Presentation) DownloadVideo(dir string) error {

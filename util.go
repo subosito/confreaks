@@ -4,35 +4,11 @@ import (
 	"bytes"
 	"errors"
 	"fmt"
-	"io/ioutil"
-	"net/http"
 	"net/url"
 	"os"
 	"os/exec"
 	"path"
 )
-
-func relativePath(pathStr string) *url.URL {
-	uri, _ := url.Parse("http://confreaks.com/")
-	uri.Path = pathStr
-
-	return uri
-}
-
-func fetch(uri string) ([]byte, error) {
-	res, err := http.Get(uri)
-	if err != nil {
-		return nil, err
-	}
-	defer res.Body.Close()
-
-	b, err := ioutil.ReadAll(res.Body)
-	if err != nil {
-		return nil, err
-	}
-
-	return b, nil
-}
 
 func downloadVideo(u, dir string) error {
 	var stderr bytes.Buffer
