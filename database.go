@@ -238,6 +238,11 @@ func eventFromDoc(doc map[string]interface{}) *Event {
 	ev.UUID = doc["UUID"].(string)
 	ev.Count = int32(doc["Count"].(float64))
 
+	t, err := time.Parse("2006-01-02T15:04:05Z", doc["Date"].(string))
+	if err == nil {
+		ev.Date = t
+	}
+
 	return ev
 }
 
