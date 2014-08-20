@@ -152,14 +152,9 @@ func LoadEventPresentations(ev *Event) (err error) {
 		ev.Presentations = append(ev.Presentations, p)
 	}
 
+	sort.Sort(byRecorded(ev.Presentations))
 	return
 }
-
-type byDate []*Event
-
-func (d byDate) Len() int           { return len(d) }
-func (d byDate) Swap(i, j int)      { d[i], d[j] = d[j], d[i] }
-func (d byDate) Less(i, j int) bool { return d[i].Date.After(d[j].Date) }
 
 func AllEvents() (events []*Event, err error) {
 	col, err := Use("events")
