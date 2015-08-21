@@ -1,0 +1,143 @@
+----------------
+RESULTS ARE TRIMMED DOWN
+----------------
+
+http://confreaks.tv/api/v1/conferences.json
+---------------------------------------------------------
+[
+  {
+    name: "GopherCon",
+    id: 95,
+    event_count: 1
+  },
+  {
+    name: "GORUCO",
+    id: 2,
+    event_count: 8
+  },
+]
+
+http://confreaks.tv/api/v1/conferences/2.json
+---------------------------------------------------------
+{
+  id: 2,
+  name: "GORUCO",
+  event_count: 8,
+  events: [
+    {
+      id: 266,
+      short_code: "goruco2015",
+      start_at: "2015-06-20T09:00:00.000Z",
+      end_at: "2015-06-20T18:00:00.000Z"
+    },
+    {
+      id: 181,
+      short_code: "goruco2014",
+      start_at: "2014-06-20T06:00:00.000Z",
+      end_at: "2014-06-20T06:00:00.000Z"
+    }
+  ]
+}
+
+http://confreaks.tv/api/v1/events.json
+---------------------------------------------------------
+[
+  {
+    id: 274,
+    display_name: "LoneStarRuby LoneStarRuby2015",
+    conference: "LoneStarRuby",
+    short_code: "LoneStarRuby2015",
+    start_at: "2015-08-15T00:00:00.000Z",
+    end_at: "2015-08-15T00:00:00.000Z"
+  },
+  {
+    id: 273,
+    display_name: "NebraskaJS 2015",
+    conference: "NebraskaJS",
+    short_code: "nebraskajs2015",
+    start_at: "2015-08-07T00:00:00.000Z",
+    end_at: "2015-08-07T00:00:00.000Z"
+  },
+  {
+    id: 270,
+    display_name: "RustCamp 2015",
+    conference: "RustCamp",
+    short_code: "rustcamp2015",
+    start_at: "2015-08-01T00:00:00.000Z",
+    end_at: "2015-08-01T00:00:00.000Z"
+  }
+]
+
+http://confreaks.tv/api/v1/events/rustcamp2015.json
+---------------------------------------------------------
+{
+  id: 270,
+  short_code: "rustcamp2015",
+  start_at: "2015-08-01T00:00:00.000Z",
+  end_at: "2015-08-01T00:00:00.000Z",
+  video_count: 10,
+  logo: "http://s3-us-west-2.amazonaws.com/confreaks-tv3/production/events/logos/000/000/270/rustcamp-logo-original.jpg?1438096474",
+  conference: {
+    id: 132,
+    name: "RustCamp"
+  }
+}
+
+http://confreaks.tv/api/v1/events/rustcamp2015/videos.json
+---------------------------------------------------------
+[
+  {
+    id: 5779,
+    title: "Rust in Production",
+    image: "http://s3-us-west-2.amazonaws.com/confreaks-tv3/production/videos/images/000/005/779/Capture-original.PNG?1439561647",
+    slug: "rustcamp2015-rust-in-production",
+    recorded_at: "2015-08-01T13:30:00.000Z",
+    event: "RustCamp 2015",
+    rating: "Everyone",
+    abstract: "Rust is new, but it's not that new! We'll hear from two folks using Rust in Production, with their teams and companies behind them. They'll tell us about some of the struggles, the triumphs, and how they made the decisions that led them where they are.",
+    post_date: "2015-08-14T08:09:00.000Z",
+    announce_date: null,
+    host: "youtube",
+    embed_code: "BTJzjvLSK0U",
+    views: 460,
+    views_last_7: 0,
+    views_last_30: 0,
+    license: "cc-by-sa-3.0",
+    attribution: "",
+    presenters: [
+      {
+        first_name: "Jonathan ",
+        last_name: "Reem",
+        aka_name: "",
+        twitter_handle: "jreem"
+      }
+    ]
+  },
+  {
+    id: 5782,
+    title: "Writing High Performance Async IO Apps",
+    image: "http://s3-us-west-2.amazonaws.com/confreaks-tv3/production/videos/images/000/005/782/Capture-original.PNG?1439562736",
+    slug: "rustcamp2015-writing-high-performance-async-io-apps",
+    recorded_at: "2015-08-01T16:00:00.000Z",
+    event: "RustCamp 2015",
+    rating: "Everyone",
+    abstract: "The talk covers how to use MIO (a lightweight non-blocking IO event loop in Rust) to write fast IO applications with Rust. It will introduce MIO's network & timeout APIs and show how to use them to create a network server. The talk will then discuss some strategies for using MIO in a multithreaded environment.",
+    post_date: "2015-08-14T08:30:00.000Z",
+    announce_date: null,
+    host: "youtube",
+    embed_code: "CjQjEMw-snk",
+    views: 1051,
+    views_last_7: 0,
+    views_last_30: 0,
+    license: "cc-by-sa-3.0",
+    attribution: "",
+    presenters: [
+      {
+        first_name: "Carl",
+        last_name: "Lerche",
+        aka_name: "",
+        twitter_handle: "carllerche"
+      }
+    ]
+  }
+]
