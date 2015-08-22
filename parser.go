@@ -1,9 +1,9 @@
 package confreaks
 
 import (
-	"code.google.com/p/cascadia"
-	"code.google.com/p/go-uuid/uuid"
-	"code.google.com/p/go.net/html"
+	"github.com/andybalholm/cascadia"
+	"github.com/subosito/go-uuid/uuid"
+	"golang.org/x/net/html"
 	"io"
 	"net/url"
 	"regexp"
