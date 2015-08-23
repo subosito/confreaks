@@ -1,0 +1,1994 @@
+[
+    {
+        "conference": "LoneStarRuby",
+        "display_name": "LoneStarRuby LoneStarRuby2015",
+        "end_at": "2015-08-15T00:00:00.000Z",
+        "id": 274,
+        "short_code": "LoneStarRuby2015",
+        "start_at": "2015-08-15T00:00:00.000Z"
+    },
+    {
+        "conference": "NebraskaJS",
+        "display_name": "NebraskaJS 2015",
+        "end_at": "2015-08-07T00:00:00.000Z",
+        "id": 273,
+        "short_code": "nebraskajs2015",
+        "start_at": "2015-08-07T00:00:00.000Z"
+    },
+    {
+        "conference": "RustCamp",
+        "display_name": "RustCamp 2015",
+        "end_at": "2015-08-01T00:00:00.000Z",
+        "id": 270,
+        "short_code": "rustcamp2015",
+        "start_at": "2015-08-01T00:00:00.000Z"
+    },
+    {
+        "conference": "eurucamp",
+        "display_name": "eurucamp 2015",
+        "end_at": "2015-08-02T00:00:00.000Z",
+        "id": 272,
+        "short_code": "eurucamp2015",
+        "start_at": "2015-08-01T00:00:00.000Z"
+    },
+    {
+        "conference": "JRuby Conf EU",
+        "display_name": "JRuby Conf EU 2015",
+        "end_at": "2015-07-31T00:00:00.000Z",
+        "id": 271,
+        "short_code": "jrubyconf2015",
+        "start_at": "2015-07-31T00:00:00.000Z"
+    },
+    {
+        "conference": "JSChannel",
+        "display_name": "JSChannel 2015",
+        "end_at": "2015-07-18T00:00:00.000Z",
+        "id": 269,
+        "short_code": "jschannelconf2015",
+        "start_at": "2015-07-17T00:00:00.000Z"
+    },
+    {
+        "conference": "Madison+",
+        "display_name": "Madison+ 2015",
+        "end_at": "2015-07-11T00:00:00.000Z",
+        "id": 276,
+        "short_code": "madplusux2015",
+        "start_at": "2015-07-10T00:00:00.000Z"
+    },
+    {
+        "conference": "Open Source Bridge",
+        "display_name": "Open Source Bridge 2015",
+        "end_at": "2015-06-25T18:00:00.000Z",
+        "id": 267,
+        "short_code": "osbridge2015",
+        "start_at": "2015-06-23T09:00:00.000Z"
+    },
+    {
+        "conference": "GORUCO",
+        "display_name": "GORUCO 2015",
+        "end_at": "2015-06-20T18:00:00.000Z",
+        "id": 266,
+        "short_code": "goruco2015",
+        "start_at": "2015-06-20T09:00:00.000Z"
+    },
+    {
+        "conference": "Wicked Good Ember",
+        "display_name": "Wicked Good Ember ",
+        "end_at": "2015-06-16T13:05:00.000Z",
+        "id": 262,
+        "short_code": "wickedgoodember2015",
+        "start_at": "2015-06-16T13:05:00.000Z"
+    },
+    {
+        "conference": "RedDot Ruby Conf",
+        "display_name": "RedDot Ruby Conf 2015",
+        "end_at": "2015-06-05T00:00:00.000Z",
+        "id": 261,
+        "short_code": "rdrc2015",
+        "start_at": "2015-06-04T00:00:00.000Z"
+    },
+    {
+        "conference": "RailsConf",
+        "display_name": "RailsConf 2015",
+        "end_at": "2015-04-23T00:00:00.000Z",
+        "id": 252,
+        "short_code": "railsconf2015",
+        "start_at": "2015-04-21T00:00:00.000Z"
+    },
+    {
+        "conference": "Bath Ruby Conference ",
+        "display_name": "Bath Ruby Conference  2015",
+        "end_at": "2015-03-13T00:00:00.000Z",
+        "id": 248,
+        "short_code": "bathruby2015",
+        "start_at": "2015-03-13T00:00:00.000Z"
+    },
+    {
+        "conference": "MountainWest RubyConf",
+        "display_name": "MountainWest RubyConf 2015",
+        "end_at": "2015-03-10T00:00:00.000Z",
+        "id": 247,
+        "short_code": "mwrc2015",
+        "start_at": "2015-03-09T00:00:00.000Z"
+    },
+    {
+        "conference": "Tropical Ruby Conference",
+        "display_name": "Tropical Ruby Conference 2015",
+        "end_at": "2015-03-07T00:00:00.000Z",
+        "id": 277,
+        "short_code": "tropicalrb2015",
+        "start_at": "2015-03-06T00:00:00.000Z"
+    },
+    {
+        "conference": "ng-conf",
+        "display_name": "ng-conf 2015",
+        "end_at": "2015-03-06T00:00:00.000Z",
+        "id": 254,
+        "short_code": "ngconf2015",
+        "start_at": "2015-03-05T00:00:00.000Z"
+    },
+    {
+        "conference": "Ruby On Ales",
+        "display_name": "Ruby On Ales 2015",
+        "end_at": "2015-03-06T00:00:00.000Z",
+        "id": 249,
+        "short_code": "roa2015",
+        "start_at": "2015-03-05T00:00:00.000Z"
+    },
+    {
+        "conference": "Ember Conf",
+        "display_name": "Ember Conf 2015",
+        "end_at": "2015-03-04T00:00:00.000Z",
+        "id": 245,
+        "short_code": "emberconf2015",
+        "start_at": "2015-03-03T00:00:00.000Z"
+    },
+    {
+        "conference": "MountainWest JavaScript",
+        "display_name": "MountainWest JavaScript 2015",
+        "end_at": "2015-03-04T00:00:00.000Z",
+        "id": 246,
+        "short_code": "mwjs2015",
+        "start_at": "2015-03-03T00:00:00.000Z"
+    },
+    {
+        "conference": "Alter Conf Sessions",
+        "display_name": "Alter Conf Sessions 2015 - Atlanta",
+        "end_at": "2015-02-28T00:00:00.000Z",
+        "id": 258,
+        "short_code": "alterconf2015-atlanta",
+        "start_at": "2015-02-28T00:00:00.000Z"
+    },
+    {
+        "conference": "Madison+",
+        "display_name": "Madison+ Hypebrr 2015",
+        "end_at": "2015-02-20T00:00:00.000Z",
+        "id": 275,
+        "short_code": "hypebrr2015",
+        "start_at": "2015-02-20T00:00:00.000Z"
+    },
+    {
+        "conference": "Alter Conf Sessions",
+        "display_name": "Alter Conf Sessions 2015 San Francisco",
+        "end_at": "2015-01-31T11:13:00.000Z",
+        "id": 256,
+        "short_code": "alterconf2015-sanfrancisco",
+        "start_at": "2015-01-31T00:00:00.000Z"
+    },
+    {
+        "conference": "Garden City Ruby",
+        "display_name": "Garden City Ruby 2015",
+        "end_at": "2015-01-10T00:00:00.000Z",
+        "id": 244,
+        "short_code": "gardencityrb2015",
+        "start_at": "2015-01-10T00:00:00.000Z"
+    },
+    {
+        "conference": "Portland Ruby Brigade",
+        "display_name": "Portland Ruby Brigade January 2015",
+        "end_at": "2015-01-06T08:00:00.000Z",
+        "id": 242,
+        "short_code": "PDXRBJAN2015",
+        "start_at": "2015-01-06T08:00:00.000Z"
+    },
+    {
+        "conference": "Portland Ruby Brigade",
+        "display_name": "Portland Ruby Brigade December 2014",
+        "end_at": "2014-12-02T08:00:00.000Z",
+        "id": 241,
+        "short_code": "PDXRBDEC2015",
+        "start_at": "2014-12-02T08:00:00.000Z"
+    },
+    {
+        "conference": "Velocity Conference",
+        "display_name": "Velocity Conference Europe 2014",
+        "end_at": "2014-11-19T07:00:00.000Z",
+        "id": 231,
+        "short_code": "velocityconfeu2014",
+        "start_at": "2014-11-17T07:00:00.000Z"
+    },
+    {
+        "conference": "Ruby Conference",
+        "display_name": "Ruby Conference 2014",
+        "end_at": "2014-11-19T07:00:00.000Z",
+        "id": 225,
+        "short_code": "RubyConf2014",
+        "start_at": "2014-11-17T07:00:00.000Z"
+    },
+    {
+        "conference": "Pacific Northwest Scala",
+        "display_name": "Pacific Northwest Scala 2014",
+        "end_at": "2014-11-15T08:00:00.000Z",
+        "id": 227,
+        "short_code": "PNWS2014",
+        "start_at": "2014-11-14T08:00:00.000Z"
+    },
+    {
+        "conference": "Keep Ruby Weird",
+        "display_name": "Keep Ruby Weird 2014",
+        "end_at": "2014-10-23T07:00:00.000Z",
+        "id": 222,
+        "short_code": "KeepRubyWeird14",
+        "start_at": "2014-10-23T07:00:00.000Z"
+    },
+    {
+        "conference": "Jenkins User Conference",
+        "display_name": "Jenkins User Conference 2014 San Francisco",
+        "end_at": "2014-10-23T06:00:00.000Z",
+        "id": 221,
+        "short_code": "JenksinSanFran2014",
+        "start_at": "2014-10-23T06:00:00.000Z"
+    },
+    {
+        "conference": "Alter Conf Sessions",
+        "display_name": "Alter Conf Sessions 2014 NewYork",
+        "end_at": "2014-10-04T06:00:00.000Z",
+        "id": 223,
+        "short_code": "alterconf2014-NewYork",
+        "start_at": "2014-10-04T06:00:00.000Z"
+    },
+    {
+        "conference": "Nickel City Ruby Conference",
+        "display_name": "Nickel City Ruby Conference 2014",
+        "end_at": "2014-10-03T07:00:00.000Z",
+        "id": 212,
+        "short_code": "nickelcityruby2014",
+        "start_at": "2014-10-02T07:00:00.000Z"
+    },
+    {
+        "conference": "ArrrrCamp",
+        "display_name": "ArrrrCamp 2014",
+        "end_at": "2014-11-03T08:00:00.000Z",
+        "id": 224,
+        "short_code": "arrrrcamp2014",
+        "start_at": "2014-10-02T07:00:00.000Z"
+    },
+    {
+        "conference": "Rails Club",
+        "display_name": "Rails Club 2014",
+        "end_at": "2014-09-27T06:00:00.000Z",
+        "id": 239,
+        "short_code": "railsclub2014",
+        "start_at": "2014-09-27T06:00:00.000Z"
+    },
+    {
+        "conference": "Rocky Mountain Ruby",
+        "display_name": "Rocky Mountain Ruby 2014",
+        "end_at": "2014-09-26T06:00:00.000Z",
+        "id": 206,
+        "short_code": "rmr2014",
+        "start_at": "2014-09-24T06:00:00.000Z"
+    },
+    {
+        "conference": "Golden Gate Ruby Conference",
+        "display_name": "Golden Gate Ruby Conference 2014",
+        "end_at": "2014-09-19T07:00:00.000Z",
+        "id": 205,
+        "short_code": "gogaruco2014",
+        "start_at": "2014-09-18T07:00:00.000Z"
+    },
+    {
+        "conference": "Ruby Kaigi",
+        "display_name": "RubyKaigi 2014",
+        "end_at": "2014-09-20T06:00:00.000Z",
+        "id": 238,
+        "short_code": "rubykaigi2014",
+        "start_at": "2014-09-18T06:00:00.000Z"
+    },
+    {
+        "conference": "Velocity Conference",
+        "display_name": "Velocity Conference 2014 New York",
+        "end_at": "2014-09-17T06:00:00.000Z",
+        "id": 216,
+        "short_code": "velocityconf2014ny",
+        "start_at": "2014-09-14T06:00:00.000Z"
+    },
+    {
+        "conference": "Alter Conf Sessions",
+        "display_name": "Alter Conf Sessions 2014 Boston",
+        "end_at": "2014-09-14T06:00:00.000Z",
+        "id": 220,
+        "short_code": "alterconf2014-boston",
+        "start_at": "2014-09-14T06:00:00.000Z"
+    },
+    {
+        "conference": "Constant Contact",
+        "display_name": "Constant Contact 2014",
+        "end_at": "2014-09-12T06:00:00.000Z",
+        "id": 215,
+        "short_code": "e4e2014",
+        "start_at": "2014-09-12T06:00:00.000Z"
+    },
+    {
+        "conference": "Java Zone",
+        "display_name": "Java Zone 2014",
+        "end_at": "2014-09-11T00:00:00.000Z",
+        "id": 253,
+        "short_code": "javazone2014",
+        "start_at": "2014-09-10T00:00:00.000Z"
+    },
+    {
+        "conference": "JS.Geo",
+        "display_name": "JS.Geo 2014",
+        "end_at": "2014-09-09T07:00:00.000Z",
+        "id": 218,
+        "short_code": "jsgeo2014",
+        "start_at": "2014-09-09T07:00:00.000Z"
+    },
+    {
+        "conference": "Windy City Rails",
+        "display_name": "Windy City Rails 2014",
+        "end_at": "2014-09-05T06:00:00.000Z",
+        "id": 237,
+        "short_code": "windycityrails2014",
+        "start_at": "2014-09-04T06:00:00.000Z"
+    },
+    {
+        "conference": "DjangoCon",
+        "display_name": "DjangoCon 2014",
+        "end_at": "2014-09-04T07:00:00.000Z",
+        "id": 211,
+        "short_code": "DjangoCon2014",
+        "start_at": "2014-09-02T07:00:00.000Z"
+    },
+    {
+        "conference": "Madison+",
+        "display_name": "Madison+ Ruby 2014",
+        "end_at": "2014-08-22T07:00:00.000Z",
+        "id": 228,
+        "short_code": "madisonruby2014",
+        "start_at": "2014-08-20T07:00:00.000Z"
+    },
+    {
+        "conference": "Cascadia Ruby",
+        "display_name": "Cascadia Ruby 2014",
+        "end_at": "2014-08-11T07:00:00.000Z",
+        "id": 204,
+        "short_code": "cascadiaruby2014",
+        "start_at": "2014-08-10T07:00:00.000Z"
+    },
+    {
+        "conference": "Burlington Ruby",
+        "display_name": "Burlington Ruby 2014",
+        "end_at": "2014-08-03T06:00:00.000Z",
+        "id": 236,
+        "short_code": "burlingtonruby2014",
+        "start_at": "2014-08-02T06:00:00.000Z"
+    },
+    {
+        "conference": "Elixir Conf",
+        "display_name": "Elixir Conf 2014",
+        "end_at": "2014-07-25T07:00:00.000Z",
+        "id": 203,
+        "short_code": "elixirconf2014",
+        "start_at": "2014-07-24T07:00:00.000Z"
+    },
+    {
+        "conference": "Ignite OSCON",
+        "display_name": "Ignite OSCON 2014",
+        "end_at": "2014-07-24T06:00:00.000Z",
+        "id": 229,
+        "short_code": "igniteoscon2014",
+        "start_at": "2014-07-20T06:00:00.000Z"
+    },
+    {
+        "conference": "Madison+",
+        "display_name": "Madison+ UX 2014",
+        "end_at": "2014-07-10T07:00:00.000Z",
+        "id": 209,
+        "short_code": "madisonux2014",
+        "start_at": "2014-07-08T07:00:00.000Z"
+    },
+    {
+        "conference": "RedDot Ruby Conf",
+        "display_name": "RedDot Ruby Conf 2014",
+        "end_at": "2014-06-27T06:00:00.000Z",
+        "id": 192,
+        "short_code": "rdrc2014",
+        "start_at": "2014-06-26T06:00:00.000Z"
+    },
+    {
+        "conference": "Velocity Conference",
+        "display_name": "Velocity Conference Santa Clara 2014 ",
+        "end_at": "2014-06-26T06:00:00.000Z",
+        "id": 232,
+        "short_code": "velocityconfsantaclara2014",
+        "start_at": "2014-06-24T06:00:00.000Z"
+    },
+    {
+        "conference": "Jenkins User Conference",
+        "display_name": "Jenkins User Conference 2014 Berlin",
+        "end_at": "2014-06-23T07:00:00.000Z",
+        "id": 184,
+        "short_code": "jenkinsberlin2014",
+        "start_at": "2014-06-23T07:00:00.000Z"
+    },
+    {
+        "conference": "GORUCO",
+        "display_name": "GORUCO 2014",
+        "end_at": "2014-06-20T06:00:00.000Z",
+        "id": 181,
+        "short_code": "goruco2014",
+        "start_at": "2014-06-20T06:00:00.000Z"
+    },
+    {
+        "conference": "Jenkins User Conference",
+        "display_name": "Jenkins User Conference 2014 Boston",
+        "end_at": "2014-06-18T07:00:00.000Z",
+        "id": 208,
+        "short_code": "jenkinsboston2014",
+        "start_at": "2014-06-18T07:00:00.000Z"
+    },
+    {
+        "conference": "Svitla Ruby Conference",
+        "display_name": "Svitla Ruby Conference 2014",
+        "end_at": "2014-06-01T06:00:00.000Z",
+        "id": 240,
+        "short_code": "svitlarubyconf2014",
+        "start_at": "2014-05-31T06:00:00.000Z"
+    },
+    {
+        "conference": "Inspect",
+        "display_name": "Inspect 2014",
+        "end_at": "2014-05-29T07:00:00.000Z",
+        "id": 191,
+        "short_code": "inspect2014",
+        "start_at": "2014-05-28T07:00:00.000Z"
+    },
+    {
+        "conference": "JSConf",
+        "display_name": "JSConf 2014 Training",
+        "end_at": "2014-05-30T06:00:00.000Z",
+        "id": 201,
+        "short_code": "jsconf2014training",
+        "start_at": "2014-05-28T06:00:00.000Z"
+    },
+    {
+        "conference": "CSSConf",
+        "display_name": "CSSConf 2014",
+        "end_at": "2014-05-27T06:00:00.000Z",
+        "id": 199,
+        "short_code": "cssconfus2014",
+        "start_at": "2014-05-27T06:00:00.000Z"
+    },
+    {
+        "conference": "JSConf",
+        "display_name": "JSConf 2014",
+        "end_at": "2014-05-31T06:00:00.000Z",
+        "id": 197,
+        "short_code": "jsconf2014",
+        "start_at": "2014-05-27T06:00:00.000Z"
+    },
+    {
+        "conference": "OpenStack Summit",
+        "display_name": "OpenStack Summit Atlanta 2014",
+        "end_at": "2014-05-16T06:00:00.000Z",
+        "id": 183,
+        "short_code": "openstacksummitatl2014",
+        "start_at": "2014-05-12T06:00:00.000Z"
+    },
+    {
+        "conference": "Scottish Ruby Conference",
+        "display_name": "Scottish Ruby Conference 2014",
+        "end_at": "2014-05-12T07:00:00.000Z",
+        "id": 235,
+        "short_code": "scottishrubyconf2014",
+        "start_at": "2014-05-11T07:00:00.000Z"
+    },
+    {
+        "conference": "Tropical Ruby Conference",
+        "display_name": "Tropical Ruby Conference Abril Pro Ruby 2014 ",
+        "end_at": "2014-04-26T06:00:00.000Z",
+        "id": 226,
+        "short_code": "abrilproruby2014",
+        "start_at": "2014-04-26T06:00:00.000Z"
+    },
+    {
+        "conference": "GopherCon",
+        "display_name": "GopherCon 2014",
+        "end_at": "2014-04-24T07:00:00.000Z",
+        "id": 180,
+        "short_code": "gophercon2014",
+        "start_at": "2014-04-23T07:00:00.000Z"
+    },
+    {
+        "conference": "RailsConf",
+        "display_name": "RailsConf 2014",
+        "end_at": "2014-04-24T07:00:00.000Z",
+        "id": 179,
+        "short_code": "railsconf2014",
+        "start_at": "2014-04-21T07:00:00.000Z"
+    },
+    {
+        "conference": "Ember Conf",
+        "display_name": "Ember Conf 2014",
+        "end_at": "2014-03-26T07:00:00.000Z",
+        "id": 162,
+        "short_code": "emberconf2014",
+        "start_at": "2014-03-25T07:00:00.000Z"
+    },
+    {
+        "conference": "RubyConf India",
+        "display_name": "RubyConf India 2014",
+        "end_at": "2014-03-23T06:00:00.000Z",
+        "id": 189,
+        "short_code": "rubyconfindia2014",
+        "start_at": "2014-03-22T06:00:00.000Z"
+    },
+    {
+        "conference": "MountainWest RubyConf",
+        "display_name": "MountainWest RubyConf 2014",
+        "end_at": "2014-03-20T07:00:00.000Z",
+        "id": 177,
+        "short_code": "mwrc2014",
+        "start_at": "2014-03-19T07:00:00.000Z"
+    },
+    {
+        "conference": "MountainWest Devops",
+        "display_name": "MountainWest Devops 2014",
+        "end_at": "2014-03-17T07:00:00.000Z",
+        "id": 175,
+        "short_code": "mtnwestdevops2014",
+        "start_at": "2014-03-17T07:00:00.000Z"
+    },
+    {
+        "conference": "MountainWest JavaScript",
+        "display_name": "MountainWest JavaScript 2014",
+        "end_at": "2014-03-16T07:00:00.000Z",
+        "id": 161,
+        "short_code": "mwjs2014",
+        "start_at": "2014-03-15T07:00:00.000Z"
+    },
+    {
+        "conference": "wroc_love.rb",
+        "display_name": "wroc_love.rb 2014",
+        "end_at": "2014-03-16T06:00:00.000Z",
+        "id": 234,
+        "short_code": "wrocloverb2014",
+        "start_at": "2014-03-14T06:00:00.000Z"
+    },
+    {
+        "conference": "Ruby On Ales",
+        "display_name": "Ruby On Ales 2014",
+        "end_at": "2014-03-06T00:00:00.000Z",
+        "id": 160,
+        "short_code": "roa2014",
+        "start_at": "2014-03-05T00:00:00.000Z"
+    },
+    {
+        "conference": "Kod.io",
+        "display_name": "Kod.io 2014",
+        "end_at": "2014-02-28T07:00:00.000Z",
+        "id": 176,
+        "short_code": "kodio_2014",
+        "start_at": "2014-02-28T07:00:00.000Z"
+    },
+    {
+        "conference": "Big Ruby",
+        "display_name": "Big Ruby 2014",
+        "end_at": "2014-02-21T08:00:00.000Z",
+        "id": 159,
+        "short_code": "bigruby2014",
+        "start_at": "2014-02-20T08:00:00.000Z"
+    },
+    {
+        "conference": "Madison+",
+        "display_name": "Madison+ Mobile 2014",
+        "end_at": "2014-02-20T08:00:00.000Z",
+        "id": 182,
+        "short_code": "madisonmobile2014",
+        "start_at": "2014-02-19T08:00:00.000Z"
+    },
+    {
+        "conference": "In Memory of",
+        "display_name": "In Memory of Jim Weirich",
+        "end_at": "2014-02-19T08:00:00.000Z",
+        "id": 164,
+        "short_code": "imjw2014",
+        "start_at": "2014-02-19T08:00:00.000Z"
+    },
+    {
+        "conference": "Strata",
+        "display_name": "Strata 2014",
+        "end_at": "2014-02-19T07:00:00.000Z",
+        "id": 217,
+        "short_code": "strataconf2014",
+        "start_at": "2014-02-17T07:00:00.000Z"
+    },
+    {
+        "conference": "LA Ruby Conference",
+        "display_name": "LA Ruby Conference 2014",
+        "end_at": "2014-02-06T08:00:00.000Z",
+        "id": 158,
+        "short_code": "larubyconf2014",
+        "start_at": "2014-02-06T08:00:00.000Z"
+    },
+    {
+        "conference": "Rubyfuza",
+        "display_name": "Rubyfuza 2014",
+        "end_at": "2014-02-08T07:00:00.000Z",
+        "id": 186,
+        "short_code": "rubyfuza2014",
+        "start_at": "2014-02-06T07:00:00.000Z"
+    },
+    {
+        "conference": "DevconTLV",
+        "display_name": "DevconTLV January 2014",
+        "end_at": "2014-01-29T08:00:00.000Z",
+        "id": 171,
+        "short_code": "devcontlvjan2014",
+        "start_at": "2014-01-29T08:00:00.000Z"
+    },
+    {
+        "conference": "Garden City Ruby",
+        "display_name": "Garden City Ruby 2014",
+        "end_at": "2014-01-04T07:00:00.000Z",
+        "id": 154,
+        "short_code": "gardencityruby2014",
+        "start_at": "2014-01-03T07:00:00.000Z"
+    },
+    {
+        "conference": "JSConf",
+        "display_name": "JSConf Asia 2013",
+        "end_at": "2013-11-29T07:00:00.000Z",
+        "id": 196,
+        "short_code": "jsconfasia2013",
+        "start_at": "2013-11-28T07:00:00.000Z"
+    },
+    {
+        "conference": "AWS re:Invent",
+        "display_name": "AWS re:Invent 2013",
+        "end_at": "2013-11-15T07:00:00.000Z",
+        "id": 213,
+        "short_code": "awsrei2013",
+        "start_at": "2013-11-12T07:00:00.000Z"
+    },
+    {
+        "conference": "Ruby Conference",
+        "display_name": "Ruby Conference 2013",
+        "end_at": "2013-11-10T07:00:00.000Z",
+        "id": 152,
+        "short_code": "rubyconf2013",
+        "start_at": "2013-11-08T07:00:00.000Z"
+    },
+    {
+        "conference": "OpenStack Summit",
+        "display_name": "OpenStack Summit Hong Kong 2013",
+        "end_at": "2013-11-08T07:00:00.000Z",
+        "id": 210,
+        "short_code": "openstacksummithongkong2013",
+        "start_at": "2013-11-05T07:00:00.000Z"
+    },
+    {
+        "conference": "Farmhouse Conf",
+        "display_name": "Farmhouse Conf 5",
+        "end_at": "2013-11-02T07:00:00.000Z",
+        "id": 153,
+        "short_code": "fhc5",
+        "start_at": "2013-11-02T07:00:00.000Z"
+    },
+    {
+        "conference": "Jenkins User Conference",
+        "display_name": "Jenkins User Conference 2013 Palo Alto",
+        "end_at": "2013-10-22T06:00:00.000Z",
+        "id": 147,
+        "short_code": "jenkins2013",
+        "start_at": "2013-10-22T06:00:00.000Z"
+    },
+    {
+        "conference": "Cascadia Ruby",
+        "display_name": "Cascadia Ruby 2013",
+        "end_at": "2013-10-22T07:00:00.000Z",
+        "id": 150,
+        "short_code": "cascadiaruby2013",
+        "start_at": "2013-10-21T07:00:00.000Z"
+    },
+    {
+        "conference": "Pacific Northwest Scala",
+        "display_name": "Pacific Northwest Scala 2013",
+        "end_at": "2013-10-19T06:00:00.000Z",
+        "id": 149,
+        "short_code": "pnws2013",
+        "start_at": "2013-10-19T06:00:00.000Z"
+    },
+    {
+        "conference": "Wicked Good Ruby",
+        "display_name": "Wicked Good Ruby 2013",
+        "end_at": "2013-10-12T07:00:00.000Z",
+        "id": 146,
+        "short_code": "wickedgoodruby2013",
+        "start_at": "2013-10-11T07:00:00.000Z"
+    },
+    {
+        "conference": "DevconTLV",
+        "display_name": "DevconTLV October 2013",
+        "end_at": "2013-10-09T07:00:00.000Z",
+        "id": 170,
+        "short_code": "devcontlvoct2013",
+        "start_at": "2013-10-09T07:00:00.000Z"
+    },
+    {
+        "conference": "Rails Israel",
+        "display_name": "Rails Israel 2013",
+        "end_at": "2013-10-08T07:00:00.000Z",
+        "id": 165,
+        "short_code": "railsisrael2013",
+        "start_at": "2013-10-08T07:00:00.000Z"
+    },
+    {
+        "conference": "Fronteers",
+        "display_name": "Fronteers 2013",
+        "end_at": "2013-10-10T07:00:00.000Z",
+        "id": 172,
+        "short_code": "fronteers13",
+        "start_at": "2013-10-08T07:00:00.000Z"
+    },
+    {
+        "conference": "ArrrrCamp",
+        "display_name": "ArrrrCamp 2013",
+        "end_at": "2013-10-04T06:00:00.000Z",
+        "id": 143,
+        "short_code": "arrrrcamp2013",
+        "start_at": "2013-10-03T06:00:00.000Z"
+    },
+    {
+        "conference": "OpenStack On Ales",
+        "display_name": "OpenStack On Ales 2013",
+        "end_at": "2013-10-01T07:00:00.000Z",
+        "id": 148,
+        "short_code": "osoa2013",
+        "start_at": "2013-09-30T07:00:00.000Z"
+    },
+    {
+        "conference": "Rocky Mountain Ruby",
+        "display_name": "Rocky Mountain Ruby 2013",
+        "end_at": "2013-08-26T07:00:00.000Z",
+        "id": 142,
+        "short_code": "rmr2013",
+        "start_at": "2013-09-25T07:00:00.000Z"
+    },
+    {
+        "conference": "Golden Gate Ruby Conference",
+        "display_name": "Golden Gate Ruby Conference 2013",
+        "end_at": "2013-09-21T07:00:00.000Z",
+        "id": 140,
+        "short_code": "gogaruco2013",
+        "start_at": "2013-09-20T07:00:00.000Z"
+    },
+    {
+        "conference": "Nickel City Ruby Conference",
+        "display_name": "Nickel City Ruby Conference 2013",
+        "end_at": "2013-09-21T07:00:00.000Z",
+        "id": 141,
+        "short_code": "nickelcityruby2013",
+        "start_at": "2013-09-20T07:00:00.000Z"
+    },
+    {
+        "conference": "Ignite Buffalo",
+        "display_name": "Ignite Buffalo 2013",
+        "end_at": "2013-09-19T07:00:00.000Z",
+        "id": 145,
+        "short_code": "ignitebflo2013",
+        "start_at": "2013-09-19T07:00:00.000Z"
+    },
+    {
+        "conference": "JSConf",
+        "display_name": "JSConf EU 2013",
+        "end_at": "2013-09-15T06:00:00.000Z",
+        "id": 151,
+        "short_code": "jsconfeu2013",
+        "start_at": "2013-09-14T06:00:00.000Z"
+    },
+    {
+        "conference": "Reject Conf",
+        "display_name": "Reject Conf 2013",
+        "end_at": "2013-09-12T06:00:00.000Z",
+        "id": 198,
+        "short_code": "rejectjs2013",
+        "start_at": "2013-09-12T06:00:00.000Z"
+    },
+    {
+        "conference": "Madison Ruby",
+        "display_name": "Madison Ruby 2013",
+        "end_at": "2013-08-24T06:00:00.000Z",
+        "id": 139,
+        "short_code": "madisonruby2013",
+        "start_at": "2013-08-23T06:00:00.000Z"
+    },
+    {
+        "conference": "Steel City Ruby",
+        "display_name": "Steel City Ruby 2013",
+        "end_at": "2013-08-17T07:00:00.000Z",
+        "id": 163,
+        "short_code": "scrc2013",
+        "start_at": "2013-08-16T07:00:00.000Z"
+    },
+    {
+        "conference": "Burlington Ruby",
+        "display_name": "Burlington Ruby 2013",
+        "end_at": "2013-08-04T06:00:00.000Z",
+        "id": 138,
+        "short_code": "btvruby2013",
+        "start_at": "2013-08-03T06:00:00.000Z"
+    },
+    {
+        "conference": "Lone Star Ruby Conference",
+        "display_name": "Lone Star Ruby Conference 2013",
+        "end_at": "2013-07-20T06:00:00.000Z",
+        "id": 136,
+        "short_code": "lonestarruby2013",
+        "start_at": "2013-07-19T06:00:00.000Z"
+    },
+    {
+        "conference": "eurUko",
+        "display_name": "eurUko 2013",
+        "end_at": "2013-06-29T00:00:00.000Z",
+        "id": 250,
+        "short_code": "eurUko2013",
+        "start_at": "2013-06-28T00:00:00.000Z"
+    },
+    {
+        "conference": "RubyConf India",
+        "display_name": "RubyConf India 2013",
+        "end_at": "2013-06-23T07:00:00.000Z",
+        "id": 137,
+        "short_code": "rubyconfindia2013",
+        "start_at": "2013-06-22T07:00:00.000Z"
+    },
+    {
+        "conference": "DevconTLV",
+        "display_name": "DevconTLV June 2013",
+        "end_at": "2013-06-19T07:00:00.000Z",
+        "id": 169,
+        "short_code": "devcontlvjun2013",
+        "start_at": "2013-06-19T07:00:00.000Z"
+    },
+    {
+        "conference": "Velocity Conference",
+        "display_name": "Velocity Conference 2013 Santa Clara, California",
+        "end_at": "2013-06-20T06:00:00.000Z",
+        "id": 214,
+        "short_code": "velocityconf2013ca",
+        "start_at": "2013-06-18T06:00:00.000Z"
+    },
+    {
+        "conference": "GORUCO",
+        "display_name": "GORUCO 2013",
+        "end_at": "2013-06-08T06:00:00.000Z",
+        "id": 135,
+        "short_code": "goruco2013",
+        "start_at": "2013-06-08T06:00:00.000Z"
+    },
+    {
+        "conference": "CSSConf",
+        "display_name": "CSSConf US 2013",
+        "end_at": "2013-05-28T06:00:00.000Z",
+        "id": 207,
+        "short_code": "cssconfus2013",
+        "start_at": "2013-05-28T06:00:00.000Z"
+    },
+    {
+        "conference": "Farmhouse Conf",
+        "display_name": "Farmhouse Conf 4",
+        "end_at": "2013-05-03T07:00:00.000Z",
+        "id": 133,
+        "short_code": "fhc4",
+        "start_at": "2013-05-03T07:00:00.000Z"
+    },
+    {
+        "conference": "RailsConf",
+        "display_name": "RailsConf 2013",
+        "end_at": "2013-05-02T06:00:00.000Z",
+        "id": 131,
+        "short_code": "railsconf2013",
+        "start_at": "2013-04-29T06:00:00.000Z"
+    },
+    {
+        "conference": "railsberry",
+        "display_name": "railsberry 2013",
+        "end_at": "2013-04-23T06:00:00.000Z",
+        "id": 188,
+        "short_code": "railsberry2013",
+        "start_at": "2013-04-22T06:00:00.000Z"
+    },
+    {
+        "conference": "openstack",
+        "display_name": "openstack Summit Portland 2013",
+        "end_at": "2013-04-17T07:00:00.000Z",
+        "id": 174,
+        "short_code": "openstacksummitportland2013",
+        "start_at": "2013-04-14T07:00:00.000Z"
+    },
+    {
+        "conference": "Ruby Midwest",
+        "display_name": "Ruby Midwest 2013",
+        "end_at": "2013-04-06T06:00:00.000Z",
+        "id": 130,
+        "short_code": "rmw2013",
+        "start_at": "2013-04-05T06:00:00.000Z"
+    },
+    {
+        "conference": "Ancient City Ruby",
+        "display_name": "Ancient City Ruby 2013",
+        "end_at": "2013-04-05T06:00:00.000Z",
+        "id": 134,
+        "short_code": "acr2013",
+        "start_at": "2013-04-04T06:00:00.000Z"
+    },
+    {
+        "conference": "MountainWest RubyConf",
+        "display_name": "MountainWest RubyConf 2013",
+        "end_at": "2013-04-05T06:00:00.000Z",
+        "id": 128,
+        "short_code": "mwrc2013",
+        "start_at": "2013-04-03T06:00:00.000Z"
+    },
+    {
+        "conference": "RubyConf Uruguay",
+        "display_name": "RubyConf Uruguay 2013",
+        "end_at": "2013-03-23T06:00:00.000Z",
+        "id": 144,
+        "short_code": "rubyconfuruguay2013",
+        "start_at": "2013-03-22T06:00:00.000Z"
+    },
+    {
+        "conference": "RubyConf Uruguay",
+        "display_name": "RubyConf Uruguay 2013",
+        "end_at": "2013-03-23T06:00:00.000Z",
+        "id": 157,
+        "short_code": "RubyConfUruguay2013",
+        "start_at": "2013-03-22T06:00:00.000Z"
+    },
+    {
+        "conference": "Rio.JS Conf",
+        "display_name": "Rio.JS Conf 2013",
+        "end_at": "2013-03-09T07:00:00.000Z",
+        "id": 190,
+        "short_code": "riojsconf2013",
+        "start_at": "2013-03-09T07:00:00.000Z"
+    },
+    {
+        "conference": "Ruby On Ales",
+        "display_name": "Ruby On Ales 2013",
+        "end_at": "2013-03-06T08:00:00.000Z",
+        "id": 127,
+        "short_code": "roa2013",
+        "start_at": "2013-03-05T08:00:00.000Z"
+    },
+    {
+        "conference": "Big Ruby",
+        "display_name": "Big Ruby 2013",
+        "end_at": "2013-02-28T08:00:00.000Z",
+        "id": 126,
+        "short_code": "bigruby2013",
+        "start_at": "2013-02-27T08:00:00.000Z"
+    },
+    {
+        "conference": "Strata",
+        "display_name": "Strata 2013",
+        "end_at": "2013-02-27T07:00:00.000Z",
+        "id": 219,
+        "short_code": "strataconf2013",
+        "start_at": "2013-02-25T07:00:00.000Z"
+    },
+    {
+        "conference": "LA Ruby Conference",
+        "display_name": "LA Ruby Conference 2013",
+        "end_at": "2013-02-23T08:00:00.000Z",
+        "id": 125,
+        "short_code": "larubyconf2013",
+        "start_at": "2013-02-23T08:00:00.000Z"
+    },
+    {
+        "conference": "Ruby Conf Australia",
+        "display_name": "Ruby Conf Australia 2013",
+        "end_at": "2013-02-21T07:00:00.000Z",
+        "id": 173,
+        "short_code": "rubyconfau2013",
+        "start_at": "2013-02-19T07:00:00.000Z"
+    },
+    {
+        "conference": "DevconTLV",
+        "display_name": "DevconTLV Feb 2013",
+        "end_at": "2013-02-14T07:00:00.000Z",
+        "id": 166,
+        "short_code": "devcontlvfeb2013",
+        "start_at": "2013-02-14T07:00:00.000Z"
+    },
+    {
+        "conference": "Erlang",
+        "display_name": "Erlang DC 2013",
+        "end_at": "2013-02-09T08:00:00.000Z",
+        "id": 119,
+        "short_code": "erlangdc2013",
+        "start_at": "2013-02-09T08:00:00.000Z"
+    },
+    {
+        "conference": "Rubyfuza",
+        "display_name": "Rubyfuza 2013",
+        "end_at": "2013-02-09T07:00:00.000Z",
+        "id": 185,
+        "short_code": "rubyfuza2013",
+        "start_at": "2013-02-07T07:00:00.000Z"
+    },
+    {
+        "conference": "HTML 5.tx",
+        "display_name": "HTML 5.tx 2013",
+        "end_at": "2013-02-02T08:00:00.000Z",
+        "id": 120,
+        "short_code": "html5tx2013",
+        "start_at": "2013-02-02T08:00:00.000Z"
+    },
+    {
+        "conference": "Rails Israel",
+        "display_name": "Rails Israel 2012",
+        "end_at": "2012-11-12T07:00:00.000Z",
+        "id": 168,
+        "short_code": "#railsisrael2012",
+        "start_at": "2012-11-12T07:00:00.000Z"
+    },
+    {
+        "conference": "Farmhouse Conf",
+        "display_name": "Farmhouse Conf 3",
+        "end_at": "2012-11-03T07:00:00.000Z",
+        "id": 132,
+        "short_code": "fhc3",
+        "start_at": "2012-11-03T07:00:00.000Z"
+    },
+    {
+        "conference": "Ruby Conference",
+        "display_name": "Ruby Conference 2012",
+        "end_at": "2012-11-03T07:00:00.000Z",
+        "id": 69,
+        "short_code": "rubyconf2012",
+        "start_at": "2012-11-01T07:00:00.000Z"
+    },
+    {
+        "conference": "Adhearsion Conf",
+        "display_name": "Adhearsion Conf 2012",
+        "end_at": "2012-10-21T06:00:00.000Z",
+        "id": 123,
+        "short_code": "adhearsionconf2012",
+        "start_at": "2012-10-20T06:00:00.000Z"
+    },
+    {
+        "conference": "OpenStack Summit",
+        "display_name": "OpenStack Summit  Fall 2012",
+        "end_at": "2012-10-18T06:00:00.000Z",
+        "id": 71,
+        "short_code": "openstackfall2012",
+        "start_at": "2012-10-15T06:00:00.000Z"
+    },
+    {
+        "conference": "Aloha Ruby",
+        "display_name": "Aloha Ruby Conf 2012",
+        "end_at": "2012-10-09T07:00:00.000Z",
+        "id": 66,
+        "short_code": "aloharuby2012",
+        "start_at": "2012-10-08T07:00:00.000Z"
+    },
+    {
+        "conference": "JSConf",
+        "display_name": "JSConf 2012",
+        "end_at": "2012-10-07T06:00:00.000Z",
+        "id": 155,
+        "short_code": "JSConfEU2012",
+        "start_at": "2012-10-06T06:00:00.000Z"
+    },
+    {
+        "conference": "ArrrrCamp",
+        "display_name": "ArrrrCamp 2012",
+        "end_at": "2012-10-05T06:00:00.000Z",
+        "id": 113,
+        "short_code": "arrrrcamp2012",
+        "start_at": "2012-10-04T06:00:00.000Z"
+    },
+    {
+        "conference": "Fronteers",
+        "display_name": "Fronteers 2012",
+        "end_at": "2012-10-05T06:00:00.000Z",
+        "id": 118,
+        "short_code": "fronteersconf2012",
+        "start_at": "2012-10-03T06:00:00.000Z"
+    },
+    {
+        "conference": "Velocity Conference",
+        "display_name": "Velocity Conference 2012",
+        "end_at": "2012-10-04T00:00:00.000Z",
+        "id": 251,
+        "short_code": "velocityconfeu2012",
+        "start_at": "2012-10-02T00:00:00.000Z"
+    },
+    {
+        "conference": "Jenkins User Conference",
+        "display_name": "Jenkins User Conference San Francisco 2012",
+        "end_at": "2012-09-30T07:00:00.000Z",
+        "id": 67,
+        "short_code": "jucsf2012",
+        "start_at": "2012-09-30T07:00:00.000Z"
+    },
+    {
+        "conference": "LXJS",
+        "display_name": "LXJS 2012",
+        "end_at": "2012-09-28T07:00:00.000Z",
+        "id": 88,
+        "short_code": "lxjs2012",
+        "start_at": "2012-09-27T07:00:00.000Z"
+    },
+    {
+        "conference": "PuppetConf",
+        "display_name": "PuppetConf 2012",
+        "end_at": "2012-09-28T06:00:00.000Z",
+        "id": 85,
+        "short_code": "puppetconf2012",
+        "start_at": "2012-09-27T06:00:00.000Z"
+    },
+    {
+        "conference": "Rocky Mountain Ruby",
+        "display_name": "Rocky Mountain Ruby 2012",
+        "end_at": "2012-09-21T07:00:00.000Z",
+        "id": 68,
+        "short_code": "rockymtnruby2012",
+        "start_at": "2012-09-19T07:00:00.000Z"
+    },
+    {
+        "conference": "X.Org Developer Conference",
+        "display_name": "X.Org Developer Conference 2012",
+        "end_at": "2012-10-21T06:00:00.000Z",
+        "id": 90,
+        "short_code": "XDC2012",
+        "start_at": "2012-09-19T06:00:00.000Z"
+    },
+    {
+        "conference": "Golden Gate Ruby Conference",
+        "display_name": "Golden Gate Ruby Conference 2012",
+        "end_at": "2012-09-15T07:00:00.000Z",
+        "id": 65,
+        "short_code": "gogaruco2012",
+        "start_at": "2012-09-14T07:00:00.000Z"
+    },
+    {
+        "conference": "Rest Fest",
+        "display_name": "Rest Fest 2012",
+        "end_at": "2012-09-15T06:00:00.000Z",
+        "id": 107,
+        "short_code": "restfest2012",
+        "start_at": "2012-09-13T06:00:00.000Z"
+    },
+    {
+        "conference": "International Conference on Functional Programming",
+        "display_name": "International Conference on Functional Programming 2012",
+        "end_at": "2012-09-12T06:00:00.000Z",
+        "id": 92,
+        "short_code": "icfp2012",
+        "start_at": "2012-09-10T06:00:00.000Z"
+    },
+    {
+        "conference": "Barcelona Ruby Conference",
+        "display_name": "Barcelona Ruby Conference 2012",
+        "end_at": "2012-09-09T07:00:00.000Z",
+        "id": 70,
+        "short_code": "baruco2012",
+        "start_at": "2012-09-08T07:00:00.000Z"
+    },
+    {
+        "conference": "Windy City Rails",
+        "display_name": "Windy City Rails 2012",
+        "end_at": "2012-12-06T08:00:00.000Z",
+        "id": 79,
+        "short_code": "windycityrails2012",
+        "start_at": "2012-09-05T07:00:00.000Z"
+    },
+    {
+        "conference": "Madison Ruby",
+        "display_name": "Madison Ruby 2012",
+        "end_at": "2012-08-25T07:00:00.000Z",
+        "id": 63,
+        "short_code": "madisonruby2012",
+        "start_at": "2012-08-24T07:00:00.000Z"
+    },
+    {
+        "conference": "Steel City Ruby",
+        "display_name": "Steel City Ruby 2012",
+        "end_at": "2012-08-04T07:00:00.000Z",
+        "id": 62,
+        "short_code": "scrc2012",
+        "start_at": "2012-08-03T07:00:00.000Z"
+    },
+    {
+        "conference": "Cascadia Ruby",
+        "display_name": "Cascadia Ruby 2012",
+        "end_at": "2012-08-04T07:00:00.000Z",
+        "id": 61,
+        "short_code": "cascadiaruby2012",
+        "start_at": "2012-08-03T07:00:00.000Z"
+    },
+    {
+        "conference": "Jax Conf",
+        "display_name": "Jax Conf 2012",
+        "end_at": "2012-07-10T06:00:00.000Z",
+        "id": 86,
+        "short_code": "jaxconf2012",
+        "start_at": "2012-07-09T06:00:00.000Z"
+    },
+    {
+        "conference": "jQuery",
+        "display_name": "jQuery Conference San Francisco 2012",
+        "end_at": "2012-06-29T07:00:00.000Z",
+        "id": 59,
+        "short_code": "jqcon2012",
+        "start_at": "2012-06-28T07:00:00.000Z"
+    },
+    {
+        "conference": "Velocity Conference",
+        "display_name": "Velocity Conference Web Performance and Operations 2012",
+        "end_at": "2012-06-27T06:00:00.000Z",
+        "id": 233,
+        "short_code": "velocityconf2012",
+        "start_at": "2012-06-25T06:00:00.000Z"
+    },
+    {
+        "conference": "GORUCO",
+        "display_name": "GORUCO 2012",
+        "end_at": "2012-06-23T07:00:00.000Z",
+        "id": 58,
+        "short_code": "goruco2012",
+        "start_at": "2012-06-23T07:00:00.000Z"
+    },
+    {
+        "conference": "Erlang Factory",
+        "display_name": "Erlang Factory Lite Moscow, Russia 2012",
+        "end_at": "2012-06-22T06:00:00.000Z",
+        "id": 109,
+        "short_code": "erlangfactorymoscow2012",
+        "start_at": "2012-06-22T06:00:00.000Z"
+    },
+    {
+        "conference": "Ruby Lugdunum (RuLu)",
+        "display_name": "Ruby Lugdunum (RuLu) 2012",
+        "end_at": "2012-06-23T06:00:00.000Z",
+        "id": 83,
+        "short_code": "rulu2012",
+        "start_at": "2012-06-22T06:00:00.000Z"
+    },
+    {
+        "conference": "Copenhagen JS",
+        "display_name": "Copenhagen JS 2012",
+        "end_at": "2012-06-21T06:00:00.000Z",
+        "id": 112,
+        "short_code": "cphjs2012",
+        "start_at": "2012-06-21T06:00:00.000Z"
+    },
+    {
+        "conference": "Windy City DB",
+        "display_name": "Windy City DB 2012",
+        "end_at": "2012-06-15T06:00:00.000Z",
+        "id": 102,
+        "short_code": "windycitydb2012",
+        "start_at": "2012-06-14T06:00:00.000Z"
+    },
+    {
+        "conference": "eurUko",
+        "display_name": "eurUko 2012",
+        "end_at": "2012-06-02T06:00:00.000Z",
+        "id": 100,
+        "short_code": "euroko2012",
+        "start_at": "2012-06-01T06:00:00.000Z"
+    },
+    {
+        "conference": "Euro Clojure",
+        "display_name": "Euro Clojure 2012",
+        "end_at": "2012-05-25T06:00:00.000Z",
+        "id": 111,
+        "short_code": "euroclojure2012",
+        "start_at": "2012-05-24T06:00:00.000Z"
+    },
+    {
+        "conference": "Web Rebels",
+        "display_name": "Web Rebels 2012",
+        "end_at": "2012-05-25T06:00:00.000Z",
+        "id": 117,
+        "short_code": "webrebels2012",
+        "start_at": "2012-05-24T06:00:00.000Z"
+    },
+    {
+        "conference": "Web Directions Code",
+        "display_name": "Web Directions Code 2012",
+        "end_at": "2012-05-24T06:00:00.000Z",
+        "id": 97,
+        "short_code": "webdirectionscode2012",
+        "start_at": "2012-05-23T06:00:00.000Z"
+    },
+    {
+        "conference": "Chef Conf",
+        "display_name": "Chef Conf 2012",
+        "end_at": "2012-05-17T06:00:00.000Z",
+        "id": 87,
+        "short_code": "chefconf2012",
+        "start_at": "2012-05-16T06:00:00.000Z"
+    },
+    {
+        "conference": "Farmhouse Conf",
+        "display_name": "Farmhouse Conf 2",
+        "end_at": "2012-05-05T07:00:00.000Z",
+        "id": 57,
+        "short_code": "fhc2",
+        "start_at": "2012-05-05T07:00:00.000Z"
+    },
+    {
+        "conference": "The Next Web",
+        "display_name": "The Next Web 2012",
+        "end_at": "2012-04-27T06:00:00.000Z",
+        "id": 93,
+        "short_code": "thenextweb2012",
+        "start_at": "2012-04-25T06:00:00.000Z"
+    },
+    {
+        "conference": "DevCon5",
+        "display_name": "DevCon5 2012",
+        "end_at": "2012-04-26T06:00:00.000Z",
+        "id": 91,
+        "short_code": "devcon52012",
+        "start_at": "2012-04-25T06:00:00.000Z"
+    },
+    {
+        "conference": "RailsConf",
+        "display_name": "RailsConf 2012",
+        "end_at": "2012-04-25T07:00:00.000Z",
+        "id": 55,
+        "short_code": "railsconf2012",
+        "start_at": "2012-04-23T07:00:00.000Z"
+    },
+    {
+        "conference": "Ignite RailsConf",
+        "display_name": "Ignite RailsConf 2012",
+        "end_at": "2012-04-22T07:00:00.000Z",
+        "id": 64,
+        "short_code": "igniterails2012",
+        "start_at": "2012-04-22T07:00:00.000Z"
+    },
+    {
+        "conference": "railsberry",
+        "display_name": "railsberry 2012",
+        "end_at": "2012-04-20T06:00:00.000Z",
+        "id": 84,
+        "short_code": "railsberry2012",
+        "start_at": "2012-04-19T06:00:00.000Z"
+    },
+    {
+        "conference": "Windy City Go",
+        "display_name": "Windy City Go 2012",
+        "end_at": "2012-04-05T00:00:00.000Z",
+        "id": 105,
+        "short_code": "windycitygo2012",
+        "start_at": "2012-04-04T00:00:00.000Z"
+    },
+    {
+        "conference": "Erlang Factory",
+        "display_name": "Erlang Factory SF Bay Area 2012",
+        "end_at": "2012-03-30T06:00:00.000Z",
+        "id": 108,
+        "short_code": "erlangfactorysf2012",
+        "start_at": "2012-03-29T06:00:00.000Z"
+    },
+    {
+        "conference": "RubyConf India",
+        "display_name": "RubyConf India 2012",
+        "end_at": "2012-03-25T07:00:00.000Z",
+        "id": 56,
+        "short_code": "rubyconfindia2012",
+        "start_at": "2012-03-24T07:00:00.000Z"
+    },
+    {
+        "conference": "Ruby Nation",
+        "display_name": "Ruby Nation 2012",
+        "end_at": "2012-03-24T07:00:00.000Z",
+        "id": 76,
+        "short_code": "rubynation2012",
+        "start_at": "2012-03-23T07:00:00.000Z"
+    },
+    {
+        "conference": "MountainWest RubyConf",
+        "display_name": "MountainWest RubyConf 2012",
+        "end_at": "2012-03-16T06:00:00.000Z",
+        "id": 54,
+        "short_code": "mwrc2012",
+        "start_at": "2012-03-15T06:00:00.000Z"
+    },
+    {
+        "conference": "Northeast Scala Symposium",
+        "display_name": "Northeast Scala Symposium 2012",
+        "end_at": "2012-03-11T07:00:00.000Z",
+        "id": 99,
+        "short_code": "nescalasymposium2012",
+        "start_at": "2012-03-09T07:00:00.000Z"
+    },
+    {
+        "conference": "Erlang Factory",
+        "display_name": "Erlang Factory Lite Krakow, Poland 2012",
+        "end_at": "2012-03-02T07:00:00.000Z",
+        "id": 110,
+        "short_code": "erlangfactorykrakow2012",
+        "start_at": "2012-03-02T07:00:00.000Z"
+    },
+    {
+        "conference": "Ruby On Ales",
+        "display_name": "Ruby On Ales 2012",
+        "end_at": "2012-03-02T08:00:00.000Z",
+        "id": 53,
+        "short_code": "roa2012",
+        "start_at": "2012-03-01T08:00:00.000Z"
+    },
+    {
+        "conference": "Airbnb Tech Talks",
+        "display_name": "Airbnb Tech Talks 2012",
+        "end_at": "2012-12-31T07:00:00.000Z",
+        "id": 94,
+        "short_code": "airbnbtechtalks2012",
+        "start_at": "2012-03-01T07:00:00.000Z"
+    },
+    {
+        "conference": "Web Directions South",
+        "display_name": "Web Directions South 2012",
+        "end_at": "2012-02-24T07:00:00.000Z",
+        "id": 98,
+        "short_code": "webdirectionssouth2012",
+        "start_at": "2012-02-23T07:00:00.000Z"
+    },
+    {
+        "conference": "AltDevConf",
+        "display_name": "AltDevConf 2012",
+        "end_at": "2012-02-12T07:00:00.000Z",
+        "id": 96,
+        "short_code": "altdevconf2012",
+        "start_at": "2012-02-11T07:00:00.000Z"
+    },
+    {
+        "conference": "jQuery",
+        "display_name": "jQuery Conference UK 2012",
+        "end_at": "2012-02-10T07:00:00.000Z",
+        "id": 101,
+        "short_code": "jqconfuk2012",
+        "start_at": "2012-02-10T07:00:00.000Z"
+    },
+    {
+        "conference": "LA Ruby Conference",
+        "display_name": "LA Ruby Conference 2012",
+        "end_at": "2012-02-04T08:00:00.000Z",
+        "id": 52,
+        "short_code": "larubyconf2012",
+        "start_at": "2012-02-04T08:00:00.000Z"
+    },
+    {
+        "conference": "meet.js SUMMIT",
+        "display_name": "meet.js SUMMIT 2012",
+        "end_at": "2012-01-14T07:00:00.000Z",
+        "id": 89,
+        "short_code": "meetjs2012",
+        "start_at": "2012-01-14T07:00:00.000Z"
+    },
+    {
+        "conference": "Waza",
+        "display_name": "Waza 2012",
+        "end_at": "2012-01-11T08:00:00.000Z",
+        "id": 78,
+        "short_code": "waza2012",
+        "start_at": "2012-01-11T08:00:00.000Z"
+    },
+    {
+        "conference": "Ruby Midwest",
+        "display_name": "Ruby Midwest 2011",
+        "end_at": "2011-11-05T07:00:00.000Z",
+        "id": 49,
+        "short_code": "rubymidwest2011",
+        "start_at": "2011-11-04T07:00:00.000Z"
+    },
+    {
+        "conference": "Ruby Manor",
+        "display_name": "Ruby Manor 3",
+        "end_at": "2011-10-29T07:00:00.000Z",
+        "id": 73,
+        "short_code": "rubymanor3",
+        "start_at": "2011-10-29T07:00:00.000Z"
+    },
+    {
+        "conference": "MagRails",
+        "display_name": "MagRails 2011",
+        "end_at": "2011-10-14T07:00:00.000Z",
+        "id": 51,
+        "short_code": "magrails2011",
+        "start_at": "2011-10-14T07:00:00.000Z"
+    },
+    {
+        "conference": "Adhearsion Conf",
+        "display_name": "Adhearsion Conf 2011",
+        "end_at": "2011-10-09T06:00:00.000Z",
+        "id": 124,
+        "short_code": "adhearsionconf2011",
+        "start_at": "2011-10-08T06:00:00.000Z"
+    },
+    {
+        "conference": "ArrrrCamp",
+        "display_name": "ArrrrCamp 2011",
+        "end_at": "2011-10-07T06:00:00.000Z",
+        "id": 114,
+        "short_code": "arrrrcamp2011",
+        "start_at": "2011-10-07T06:00:00.000Z"
+    },
+    {
+        "conference": "Fronteers",
+        "display_name": "Fronteers 2011",
+        "end_at": "2011-10-07T06:00:00.000Z",
+        "id": 121,
+        "short_code": "fronteersconf2011",
+        "start_at": "2011-10-06T06:00:00.000Z"
+    },
+    {
+        "conference": "JSConf",
+        "display_name": "JSConf EU 2011",
+        "end_at": "2011-10-02T06:00:00.000Z",
+        "id": 156,
+        "short_code": "JSConfEU2011",
+        "start_at": "2011-10-01T06:00:00.000Z"
+    },
+    {
+        "conference": "Ruby Conference",
+        "display_name": "Ruby Conference 2011",
+        "end_at": "2011-10-01T07:00:00.000Z",
+        "id": 47,
+        "short_code": "rubyconf2011",
+        "start_at": "2011-09-29T07:00:00.000Z"
+    },
+    {
+        "conference": "Windy City Rails",
+        "display_name": "Windy City Rails 2011",
+        "end_at": "2011-09-17T06:00:00.000Z",
+        "id": 80,
+        "short_code": "windycityrails2011",
+        "start_at": "2011-09-17T06:00:00.000Z"
+    },
+    {
+        "conference": "Golden Gate Ruby Conference",
+        "display_name": "Golden Gate Ruby Conference 2011",
+        "end_at": "2011-09-17T07:00:00.000Z",
+        "id": 46,
+        "short_code": "gogaruco2011",
+        "start_at": "2011-09-16T07:00:00.000Z"
+    },
+    {
+        "conference": "Rocky Mountain Ruby",
+        "display_name": "Rocky Mountain Ruby 2011",
+        "end_at": "2011-09-02T07:00:00.000Z",
+        "id": 48,
+        "short_code": "rockymtnruby2011",
+        "start_at": "2011-08-31T07:00:00.000Z"
+    },
+    {
+        "conference": "Madison Ruby",
+        "display_name": "Madison Ruby 2011",
+        "end_at": "2011-08-20T07:00:00.000Z",
+        "id": 45,
+        "short_code": "madisonruby2011",
+        "start_at": "2011-08-19T07:00:00.000Z"
+    },
+    {
+        "conference": "Lone Star Ruby Conference",
+        "display_name": "Lone Star Ruby Conference 2011",
+        "end_at": "2011-08-12T07:00:00.000Z",
+        "id": 129,
+        "short_code": "lsrc2011",
+        "start_at": "2011-08-11T07:00:00.000Z"
+    },
+    {
+        "conference": "Cascadia Ruby",
+        "display_name": "Cascadia Ruby 2011",
+        "end_at": "2011-07-29T07:00:00.000Z",
+        "id": 43,
+        "short_code": "cascadiaruby2011",
+        "start_at": "2011-07-28T07:00:00.000Z"
+    },
+    {
+        "conference": "Windy City DB",
+        "display_name": "Windy City DB 2011",
+        "end_at": "2011-06-25T06:00:00.000Z",
+        "id": 103,
+        "short_code": "windycitydb2011",
+        "start_at": "2011-06-25T06:00:00.000Z"
+    },
+    {
+        "conference": "GORUCO",
+        "display_name": "GORUCO 2011",
+        "end_at": "2011-06-04T06:00:00.000Z",
+        "id": 194,
+        "short_code": "goruco2011",
+        "start_at": "2011-06-04T06:00:00.000Z"
+    },
+    {
+        "conference": "Farmhouse Conf",
+        "display_name": "Farmhouse Conf 2011",
+        "end_at": "2011-05-07T07:00:00.000Z",
+        "id": 40,
+        "short_code": "fhc1",
+        "start_at": "2011-05-07T07:00:00.000Z"
+    },
+    {
+        "conference": "NodeConf",
+        "display_name": "NodeConf 2011",
+        "end_at": "2011-05-05T06:00:00.000Z",
+        "id": 200,
+        "short_code": "nodeconf2011",
+        "start_at": "2011-05-05T06:00:00.000Z"
+    },
+    {
+        "conference": "JSConf",
+        "display_name": "JSConf US 2011",
+        "end_at": "2011-05-03T06:00:00.000Z",
+        "id": 202,
+        "short_code": "jsconfus2011",
+        "start_at": "2011-05-02T06:00:00.000Z"
+    },
+    {
+        "conference": "Windy City Go",
+        "display_name": "Windy City Go 2011",
+        "end_at": "2011-04-09T06:00:00.000Z",
+        "id": 106,
+        "short_code": "windycitygo2011",
+        "start_at": "2011-04-09T06:00:00.000Z"
+    },
+    {
+        "conference": "Scotland Ruby",
+        "display_name": "Scotland Ruby 2011",
+        "end_at": "2011-04-08T07:00:00.000Z",
+        "id": 41,
+        "short_code": "scotlandruby2011",
+        "start_at": "2011-04-06T07:00:00.000Z"
+    },
+    {
+        "conference": "Ruby On Ales",
+        "display_name": "Ruby On Ales 2011",
+        "end_at": "2011-03-25T07:00:00.000Z",
+        "id": 39,
+        "short_code": "roa2011",
+        "start_at": "2011-03-24T07:00:00.000Z"
+    },
+    {
+        "conference": "MountainWest RubyConf",
+        "display_name": "MountainWest RubyConf 2011",
+        "end_at": "2011-03-18T07:00:00.000Z",
+        "id": 38,
+        "short_code": "mwrc2011",
+        "start_at": "2011-03-17T07:00:00.000Z"
+    },
+    {
+        "conference": "LA Ruby Conference",
+        "display_name": "LA Ruby Conference 2011",
+        "end_at": "2011-02-05T08:00:00.000Z",
+        "id": 37,
+        "short_code": "larubyconf2011",
+        "start_at": "2011-02-05T08:00:00.000Z"
+    },
+    {
+        "conference": "Ruby Conference",
+        "display_name": "Ruby Conference 2010",
+        "end_at": "2010-11-13T00:00:00.000Z",
+        "id": 33,
+        "short_code": "rubyconf2010",
+        "start_at": "2010-11-11T00:00:00.000Z"
+    },
+    {
+        "conference": "RubyConf Uruguay",
+        "display_name": "RubyConf Uruguay 2010",
+        "end_at": "2010-10-30T07:00:00.000Z",
+        "id": 36,
+        "short_code": "rubyconfuruguay2010",
+        "start_at": "2010-10-29T07:00:00.000Z"
+    },
+    {
+        "conference": "ArrrrCamp",
+        "display_name": "ArrrrCamp 2010",
+        "end_at": "2010-10-29T06:00:00.000Z",
+        "id": 115,
+        "short_code": "arrrrcamp2010",
+        "start_at": "2010-10-29T06:00:00.000Z"
+    },
+    {
+        "conference": "Fronteers",
+        "display_name": "Fronteers 2010",
+        "end_at": "2011-10-08T06:00:00.000Z",
+        "id": 122,
+        "short_code": "fronteersconf2010",
+        "start_at": "2010-10-07T06:00:00.000Z"
+    },
+    {
+        "conference": "Mountain rb",
+        "display_name": "Mountain rb 2010",
+        "end_at": "2010-10-08T07:00:00.000Z",
+        "id": 35,
+        "short_code": "mountainrb2010",
+        "start_at": "2010-10-06T07:00:00.000Z"
+    },
+    {
+        "conference": "Sunny Conf",
+        "display_name": "Sunny Conf 2010",
+        "end_at": "2010-09-25T07:00:00.000Z",
+        "id": 34,
+        "short_code": "sunnyconf2010",
+        "start_at": "2010-09-25T07:00:00.000Z"
+    },
+    {
+        "conference": "JSConf",
+        "display_name": "JSConf EU 2010",
+        "end_at": "2010-09-26T06:00:00.000Z",
+        "id": 195,
+        "short_code": "jsconfeu2010",
+        "start_at": "2010-09-25T06:00:00.000Z"
+    },
+    {
+        "conference": "Golden Gate Ruby Conference",
+        "display_name": "Golden Gate Ruby Conference 2010",
+        "end_at": "2010-09-18T07:00:00.000Z",
+        "id": 32,
+        "short_code": "gogaruco2010",
+        "start_at": "2010-09-17T07:00:00.000Z"
+    },
+    {
+        "conference": "Windy City Rails",
+        "display_name": "Windy City Rails 2010",
+        "end_at": "2010-09-11T06:00:00.000Z",
+        "id": 81,
+        "short_code": "windycityrails2010",
+        "start_at": "2010-09-11T06:00:00.000Z"
+    },
+    {
+        "conference": "Ruby|Web Conference",
+        "display_name": "Ruby|Web Conference 2010",
+        "end_at": "2010-09-10T07:00:00.000Z",
+        "id": 31,
+        "short_code": "rubyweb2010",
+        "start_at": "2010-09-09T07:00:00.000Z"
+    },
+    {
+        "conference": "Ruby Hoedown",
+        "display_name": "Ruby Hoedown 2010",
+        "end_at": "2010-09-04T07:00:00.000Z",
+        "id": 167,
+        "short_code": "rubyhoedown2010",
+        "start_at": "2010-09-03T07:00:00.000Z"
+    },
+    {
+        "conference": "Lone Star Ruby Conference",
+        "display_name": "Lone Star Ruby Conference 2010",
+        "end_at": "2010-08-28T07:00:00.000Z",
+        "id": 29,
+        "short_code": "lsrc2010",
+        "start_at": "2010-08-27T07:00:00.000Z"
+    },
+    {
+        "conference": "Emerging Languages Camp",
+        "display_name": "Emerging Languages Camp 2010",
+        "end_at": "2010-07-22T07:00:00.000Z",
+        "id": 28,
+        "short_code": "elcamp2010",
+        "start_at": "2010-07-21T07:00:00.000Z"
+    },
+    {
+        "conference": "Ignite OSCON",
+        "display_name": "Ignite OSCON 2010",
+        "end_at": "2010-07-21T06:00:00.000Z",
+        "id": 230,
+        "short_code": "igniteoscon2010",
+        "start_at": "2010-07-21T06:00:00.000Z"
+    },
+    {
+        "conference": "Windy City DB",
+        "display_name": "Windy City DB 2010",
+        "end_at": "2010-06-26T06:00:00.000Z",
+        "id": 104,
+        "short_code": "windycitydb2010",
+        "start_at": "2010-06-26T06:00:00.000Z"
+    },
+    {
+        "conference": "Agile Roots",
+        "display_name": "Agile Roots 2010",
+        "end_at": "2010-06-15T07:00:00.000Z",
+        "id": 10,
+        "short_code": "agileroots2010",
+        "start_at": "2010-06-14T07:00:00.000Z"
+    },
+    {
+        "conference": "GORUCO",
+        "display_name": "GORUCO 2010",
+        "end_at": "2010-05-22T06:00:00.000Z",
+        "id": 193,
+        "short_code": "goruco2010",
+        "start_at": "2010-05-22T06:00:00.000Z"
+    },
+    {
+        "conference": "MountainWest RubyConf",
+        "display_name": "MountainWest RubyConf 2010",
+        "end_at": "2010-03-12T08:00:00.000Z",
+        "id": 1,
+        "short_code": "mwrc2010",
+        "start_at": "2010-03-11T08:00:00.000Z"
+    },
+    {
+        "conference": "LA Ruby Conference",
+        "display_name": "LA Ruby Conference 2010",
+        "end_at": "2010-02-20T08:00:00.000Z",
+        "id": 17,
+        "short_code": "larubyconf2010",
+        "start_at": "2010-02-20T08:00:00.000Z"
+    },
+    {
+        "conference": "Ruby Manor",
+        "display_name": "Ruby Manor Harder",
+        "end_at": "2009-12-12T08:00:00.000Z",
+        "id": 74,
+        "short_code": "rubymanor2",
+        "start_at": "2009-12-12T08:00:00.000Z"
+    },
+    {
+        "conference": "JRuby Conference",
+        "display_name": "JRuby Conference 2009",
+        "end_at": "2009-11-22T08:00:00.000Z",
+        "id": 30,
+        "short_code": "jrubyconf2009",
+        "start_at": "2009-11-22T08:00:00.000Z"
+    },
+    {
+        "conference": "Ruby Conference",
+        "display_name": "Ruby Conference 2009",
+        "end_at": "2009-11-21T00:00:00.000Z",
+        "id": 15,
+        "short_code": "rubyconf2009",
+        "start_at": "2009-11-19T00:00:00.000Z"
+    },
+    {
+        "conference": "Windy City Rails",
+        "display_name": "Windy City Rails 2009",
+        "end_at": "2009-09-12T06:00:00.000Z",
+        "id": 82,
+        "short_code": "windycityrails2009",
+        "start_at": "2009-09-12T06:00:00.000Z"
+    },
+    {
+        "conference": "Lone Star Ruby Conference",
+        "display_name": "Lone Star Ruby Conference 2009",
+        "end_at": "2009-08-29T07:00:00.000Z",
+        "id": 26,
+        "short_code": "lsrc2009",
+        "start_at": "2009-08-28T07:00:00.000Z"
+    },
+    {
+        "conference": "Agile Roots",
+        "display_name": "Agile Roots 2009",
+        "end_at": "2009-06-16T00:00:00.000Z",
+        "id": 14,
+        "short_code": "agileroots2009",
+        "start_at": "2009-06-15T00:00:00.000Z"
+    },
+    {
+        "conference": "GORUCO",
+        "display_name": "GORUCO 2009",
+        "end_at": "2009-05-30T07:00:00.000Z",
+        "id": 2,
+        "short_code": "goruco2009",
+        "start_at": "2009-05-30T07:00:00.000Z"
+    },
+    {
+        "conference": "Golden Gate Ruby Conference",
+        "display_name": "Golden Gate Ruby Conference 2009",
+        "end_at": "2009-04-18T07:00:00.000Z",
+        "id": 77,
+        "short_code": "gogaruco2009",
+        "start_at": "2009-04-17T07:00:00.000Z"
+    },
+    {
+        "conference": "LA Ruby Conference",
+        "display_name": "LA Ruby Conference 2009",
+        "end_at": "2009-04-04T07:00:00.000Z",
+        "id": 16,
+        "short_code": "larubyconf2009",
+        "start_at": "2009-04-04T07:00:00.000Z"
+    },
+    {
+        "conference": "MountainWest RubyConf",
+        "display_name": "MountainWest RubyConf 2009",
+        "end_at": "2009-03-14T07:00:00.000Z",
+        "id": 11,
+        "short_code": "mwrc2009",
+        "start_at": "2009-03-13T07:00:00.000Z"
+    },
+    {
+        "conference": "Acts as Conference",
+        "display_name": "Acts as Conference 2009",
+        "end_at": "2009-02-07T08:00:00.000Z",
+        "id": 19,
+        "short_code": "aac2009",
+        "start_at": "2009-02-06T08:00:00.000Z"
+    },
+    {
+        "conference": "Ruby Manor",
+        "display_name": null,
+        "end_at": "2008-11-22T08:00:00.000Z",
+        "id": 75,
+        "short_code": "rubymanor1",
+        "start_at": "2008-11-22T08:00:00.000Z"
+    },
+    {
+        "conference": "Ruby Conference",
+        "display_name": "Ruby Conference 2008",
+        "end_at": "2008-11-08T08:00:00.000Z",
+        "id": 3,
+        "short_code": "rubyconf2008",
+        "start_at": "2008-11-06T08:00:00.000Z"
+    },
+    {
+        "conference": "Ruby Hoedown",
+        "display_name": "Ruby Hoedown 2008",
+        "end_at": "2008-08-09T07:00:00.000Z",
+        "id": 22,
+        "short_code": "rubyhoedown2008",
+        "start_at": "2008-08-08T07:00:00.000Z"
+    },
+    {
+        "conference": "GORUCO",
+        "display_name": "GORUCO 2008",
+        "end_at": "2008-04-26T07:00:00.000Z",
+        "id": 7,
+        "short_code": "goruco2008",
+        "start_at": "2008-04-26T07:00:00.000Z"
+    },
+    {
+        "conference": "MountainWest RubyConf",
+        "display_name": "MountainWest RubyConf 2008",
+        "end_at": "2008-03-29T07:00:00.000Z",
+        "id": 12,
+        "short_code": "mwrc2008",
+        "start_at": "2008-03-28T07:00:00.000Z"
+    },
+    {
+        "conference": "Ruby Conference",
+        "display_name": "Ruby Conference 2007",
+        "end_at": "2007-11-04T07:00:00.000Z",
+        "id": 9,
+        "short_code": "rubyconf2007",
+        "start_at": "2007-11-02T07:00:00.000Z"
+    },
+    {
+        "conference": "Ruby Hoedown",
+        "display_name": "Ruby Hoedown 2007",
+        "end_at": "2007-08-11T07:00:00.000Z",
+        "id": 23,
+        "short_code": "rubyhoedown2007",
+        "start_at": "2007-08-10T07:00:00.000Z"
+    },
+    {
+        "conference": "MountainWest RubyConf",
+        "display_name": "MountainWest RubyConf 2007",
+        "end_at": "2007-03-17T07:00:00.000Z",
+        "id": 13,
+        "short_code": "mwrc2007",
+        "start_at": "2007-03-16T07:00:00.000Z"
+    }
+]

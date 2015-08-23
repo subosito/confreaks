@@ -1,0 +1,278 @@
+[
+    {
+        "abstract": "Rust is new, but it's not that new! We'll hear from two folks using Rust in Production, with their teams and companies behind them. They'll tell us about some of the struggles, the triumphs, and how they made the decisions that led them where they are.",
+        "announce_date": null,
+        "attribution": "",
+        "embed_code": "BTJzjvLSK0U",
+        "event": "RustCamp 2015",
+        "host": "youtube",
+        "id": 5779,
+        "image": "http://s3-us-west-2.amazonaws.com/confreaks-tv3/production/videos/images/000/005/779/Capture-original.PNG?1439561647",
+        "license": "cc-by-sa-3.0",
+        "post_date": "2015-08-14T08:09:00.000Z",
+        "presenters": [
+            {
+                "aka_name": "",
+                "first_name": "Jonathan ",
+                "last_name": "Reem",
+                "twitter_handle": "jreem"
+            }
+        ],
+        "rating": "Everyone",
+        "recorded_at": "2015-08-01T13:30:00.000Z",
+        "slug": "rustcamp2015-rust-in-production",
+        "title": "Rust in Production",
+        "views": 490,
+        "views_last_30": 0,
+        "views_last_7": 0
+    },
+    {
+        "abstract": "The talk covers how to use MIO (a lightweight non-blocking IO event loop in Rust) to write fast IO applications with Rust. It will introduce MIO's network & timeout APIs and show how to use them to create a network server. The talk will then discuss some strategies for using MIO in a multithreaded environment.",
+        "announce_date": null,
+        "attribution": "",
+        "embed_code": "CjQjEMw-snk",
+        "event": "RustCamp 2015",
+        "host": "youtube",
+        "id": 5782,
+        "image": "http://s3-us-west-2.amazonaws.com/confreaks-tv3/production/videos/images/000/005/782/Capture-original.PNG?1439562736",
+        "license": "cc-by-sa-3.0",
+        "post_date": "2015-08-14T08:30:00.000Z",
+        "presenters": [
+            {
+                "aka_name": "",
+                "first_name": "Carl",
+                "last_name": "Lerche",
+                "twitter_handle": "carllerche"
+            }
+        ],
+        "rating": "Everyone",
+        "recorded_at": "2015-08-01T16:00:00.000Z",
+        "slug": "rustcamp2015-writing-high-performance-async-io-apps",
+        "title": "Writing High Performance Async IO Apps",
+        "views": 1122,
+        "views_last_30": 0,
+        "views_last_7": 0
+    },
+    {
+        "abstract": "",
+        "announce_date": null,
+        "attribution": "",
+        "embed_code": "jDQaIl_1Nfk",
+        "event": "RustCamp 2015",
+        "host": "youtube",
+        "id": 5776,
+        "image": "http://s3-us-west-2.amazonaws.com/confreaks-tv3/production/videos/images/000/005/776/Capture-original.PNG?1439560075",
+        "license": "cc-by-sa-3.0",
+        "post_date": "2015-08-14T07:40:00.000Z",
+        "presenters": [
+            {
+                "aka_name": "",
+                "first_name": "Aaron ",
+                "last_name": "Turon ",
+                "twitter_handle": "aaron_turon"
+            },
+            {
+                "aka_name": "",
+                "first_name": "Niko",
+                "last_name": "Matsakis",
+                "twitter_handle": "nikomatsakis"
+            }
+        ],
+        "rating": "Everyone",
+        "recorded_at": "2015-08-01T10:00:00.000Z",
+        "slug": "rustcamp2015-keynote-rust-1-0-in-number-5-years-of-git-history",
+        "title": "Keynote: Rust 1.0 in Number - 5 years of git history",
+        "views": 915,
+        "views_last_30": 0,
+        "views_last_7": 0
+    },
+    {
+        "abstract": "Many new Rustaceans dive in with experience almost exclusively in a higher level, GC'd language. To them, terminology from systems programming can be overwhelming and cryptic...but it doesn't have to be! With side-by-side Rust, Ruby, and Python examples, we can dive into the world of pointers, heaps, and stacks that will let you reason better about your programs, no matter what language you are using!",
+        "announce_date": null,
+        "attribution": "",
+        "embed_code": "IqmoxB6jEHg",
+        "event": "RustCamp 2015",
+        "host": "youtube",
+        "id": 5778,
+        "image": "http://s3-us-west-2.amazonaws.com/confreaks-tv3/production/videos/images/000/005/778/Capture-original.PNG?1439561113",
+        "license": "cc-by-sa-3.0",
+        "post_date": "2015-08-14T08:02:00.000Z",
+        "presenters": [
+            {
+                "aka_name": "",
+                "first_name": "Matt",
+                "last_name": "Cox",
+                "twitter_handle": ""
+            }
+        ],
+        "rating": "Everyone",
+        "recorded_at": "2015-08-01T11:30:00.000Z",
+        "slug": "rustcamp2015-learning-systems-programming-with-rust",
+        "title": "Learning Systems Programming with Rust",
+        "views": 746,
+        "views_last_30": 0,
+        "views_last_7": 0
+    },
+    {
+        "abstract": "Time series databases are the backbone of metrics gathering in large computer systems. The most popular service is a difficult to understand and suboptimal implementation done in Python. Rust's strong typing, safe data reuse, standardized build tool, and easy integration with performance tools have made it possible to build a high performance replacement.\r\n\r\nThis talk will cover the rearchitecture of the popular graphite metric system redone entirely in Rust and currently used in production. This is not a line-for-line rewrite but it is compatible with the wire protocol and disk format.",
+        "announce_date": null,
+        "attribution": "",
+        "embed_code": "choaW813DMo",
+        "event": "RustCamp 2015",
+        "host": "youtube",
+        "id": 5780,
+        "image": "http://s3-us-west-2.amazonaws.com/confreaks-tv3/production/videos/images/000/005/780/Capture-original.PNG?1439562499",
+        "license": "cc-by-sa-3.0",
+        "post_date": "2015-08-14T08:26:00.000Z",
+        "presenters": [
+            {
+                "aka_name": "",
+                "first_name": "Xavier",
+                "last_name": "Lange",
+                "twitter_handle": "tureus"
+            }
+        ],
+        "rating": "Everyone",
+        "recorded_at": "2015-08-01T15:00:00.000Z",
+        "slug": "rustcamp2015-graphite-rust-a-fast-time-series-database-implementation",
+        "title": "Graphite-Rust: A Fast Time Series Database Implementation",
+        "views": 494,
+        "views_last_30": 0,
+        "views_last_7": 0
+    },
+    {
+        "abstract": "One of the best things about Rust is how easy it is to integrate Rust with applications or libraries written in C. But while Rust provides all of the tools you need to get the job done, getting started with the FFI APIs can be tricky. To make matters worse, this kind of Rust programming is full of unsafe code.\r\n\r\nIn this talk, I will cover the basics of using Rust from C (and vice versa), based on over a year of writing production Rust code that makes heavy use of FFI bindings.",
+        "announce_date": null,
+        "attribution": "",
+        "embed_code": "GktVBv76fe0",
+        "event": "RustCamp 2015",
+        "host": "youtube",
+        "id": 5783,
+        "image": "http://s3-us-west-2.amazonaws.com/confreaks-tv3/production/videos/images/000/005/783/Capture-original.PNG?1439566174",
+        "license": "cc-by-sa-3.0",
+        "post_date": "2015-08-14T09:26:00.000Z",
+        "presenters": [
+            {
+                "aka_name": "",
+                "first_name": "Yehuda",
+                "last_name": "Katz",
+                "twitter_handle": "wycats"
+            }
+        ],
+        "rating": "Everyone",
+        "recorded_at": "2015-08-01T16:45:00.000Z",
+        "slug": "rustcamp2015-using-rust-from-c-or-any-language",
+        "title": "Using Rust from C... or Any Language",
+        "views": 358,
+        "views_last_30": 0,
+        "views_last_7": 0
+    },
+    {
+        "abstract": "Rust exposes a lot of ways to traverse a collection: iter, iter_mut, into_iter, and drain to name a few! This isn't a case of over-engineering: each of these kinds of iterator necessarily falls out of Rust caring about ownership, and encoding it in the type system. However even all these iterators still aren't enough to capture all the subtleties of ownership and traversal!\r\n\r\nThis talk surveys the advantages, weaknesses, and motivation of the current iterator APIs, as well as hypothetical future iterator APIs that could complete our iteration story such as Cursor and MutexIterator.",
+        "announce_date": null,
+        "attribution": "",
+        "embed_code": "NGW17shYtRM",
+        "event": "RustCamp 2015",
+        "host": "youtube",
+        "id": 5777,
+        "image": "http://s3-us-west-2.amazonaws.com/confreaks-tv3/production/videos/images/000/005/777/Capture-original.PNG?1439560610",
+        "license": "cc-by-sa-3.0",
+        "post_date": "2015-08-14T07:53:00.000Z",
+        "presenters": [
+            {
+                "aka_name": "",
+                "first_name": "Alex ",
+                "last_name": "Beingessner",
+                "twitter_handle": "Gankro"
+            }
+        ],
+        "rating": "Everyone",
+        "recorded_at": "2015-08-01T10:45:00.000Z",
+        "slug": "rustcamp2015-who-owns-this-stream-of-data",
+        "title": "Who Owns This Stream of Data?",
+        "views": 492,
+        "views_last_30": 0,
+        "views_last_7": 0
+    },
+    {
+        "abstract": "The compiler knows a lot about your programs. That knowledge can let you build sophisticated tools for analysing and mutating code.\r\n\r\nI'll give a basic overview of the architecture of the compiler and the phases of compilation. I'll cover some of the APIs you can use to get at the results of program analysis. I'll show how tools for cross-referencing, refactoring, and reformatting work with the compiler, and I'll work through a simple tool in detail. By the end of the talk, you should know what the compuler does and be able to start writing your own tools based on the compiler's analyses.",
+        "announce_date": null,
+        "attribution": "",
+        "embed_code": "0ttt8aREC7Q",
+        "event": "RustCamp 2015",
+        "host": "youtube",
+        "id": 5784,
+        "image": "http://s3-us-west-2.amazonaws.com/confreaks-tv3/production/videos/images/000/005/784/Capture-original.PNG?1439566414",
+        "license": "cc-by-sa-3.0",
+        "post_date": "2015-08-14T09:31:00.000Z",
+        "presenters": [
+            {
+                "aka_name": "",
+                "first_name": "Nick",
+                "last_name": "Cameron",
+                "twitter_handle": "nick_r_cameron"
+            }
+        ],
+        "rating": "Everyone",
+        "recorded_at": "2015-08-01T17:30:00.000Z",
+        "slug": "rustcamp2015-making-tools-for-rust-an-introduction-to-the-compiler-and-how-it-can-help-you",
+        "title": "Making Tools for Rust: An Introduction to the Compiler  and How It Can Help You",
+        "views": 420,
+        "views_last_30": 0,
+        "views_last_7": 0
+    },
+    {
+        "abstract": "A new language being born is a fairly rare occurrence\u2014a new language being born with the reasoning behind all the decisions documented in the open is even more so. Learn techniques to help you explore the treasures in git, GitHub, Discourse, and IRC. Take a half hour tour through some defining moments in Rust development history\u2014for instance, the core language used to have a garbage collector!\r\n\r\nBecome a better Rust user and contributor by using these open artifacts. After all, programming is not about knowing all the answers but knowing how to find the answers.",
+        "announce_date": null,
+        "attribution": "",
+        "embed_code": "RpfilKrq2_M",
+        "event": "RustCamp 2015",
+        "host": "youtube",
+        "id": 6003,
+        "image": "http://s3-us-west-2.amazonaws.com/confreaks-tv3/production/videos/images/000/006/003/Capture-original.PNG?1439998153",
+        "license": "cc-by-sa-3.0",
+        "post_date": "2015-08-19T09:06:00.000Z",
+        "presenters": [
+            {
+                "aka_name": "",
+                "first_name": "Carol",
+                "last_name": "Nichols - Goulding",
+                "twitter_handle": "Carols10cents"
+            }
+        ],
+        "rating": "Everyone",
+        "recorded_at": "2015-08-01T09:04:00.000Z",
+        "slug": "rustcamp2015-navigating-the-open-seas",
+        "title": "Navigating the Open Seas",
+        "views": 1284,
+        "views_last_30": 0,
+        "views_last_7": 0
+    },
+    {
+        "abstract": " ",
+        "announce_date": null,
+        "attribution": "",
+        "embed_code": "0qIAk5sTwEo",
+        "event": "RustCamp 2015",
+        "host": "youtube",
+        "id": 5781,
+        "image": "http://s3-us-west-2.amazonaws.com/confreaks-tv3/production/videos/images/000/005/781/Capture-original.PNG?1439562168",
+        "license": "cc-by-sa-3.0",
+        "post_date": "2015-08-14T08:16:00.000Z",
+        "presenters": [
+            {
+                "aka_name": "",
+                "first_name": "Paige",
+                "last_name": "Peterson ",
+                "twitter_handle": ""
+            }
+        ],
+        "rating": "Everyone",
+        "recorded_at": "2015-08-01T14:15:00.000Z",
+        "slug": "rustcamp2015-evolving-the-internet-using-rust",
+        "title": "Evolving the Internet Using Rust",
+        "views": 641,
+        "views_last_30": 0,
+        "views_last_7": 0
+    }
+]
