@@ -1,0 +1,6 @@
+language: go
+install:
+  - go get -d -t
+  - go build
+script:
+  - go test -v
