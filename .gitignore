@@ -1,3 +1,2 @@
-index.json
 coverage.out
-bin/_db_
+cmd/confreaks/confreaks
