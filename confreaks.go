@@ -1,21 +1,12 @@
 package confreaks
 
 import (
-	"github.com/Sirupsen/logrus"
 	"net/http"
 	"strings"
 	"time"
 )
 
-var log = logrus.New()
-
-func SetLogger(l *logrus.Logger) {
-	log = l
-}
-
-// Rewriting code
-
-type NEvent struct {
+type Event struct {
 	ID          int       `json:"id"`
 	DisplayName string    `json:"display_name"`
 	Conference  string    `json:"conference"`
@@ -82,8 +73,8 @@ func (c *Confreaks) Client() *Client {
 	return c.client
 }
 
-func (c *Confreaks) Events() ([]NEvent, error) {
-	v := []NEvent{}
+func (c *Confreaks) Events() ([]Event, error) {
+	v := []Event{}
 	err := c.doParse(&v, "events")
 	return v, err
 }

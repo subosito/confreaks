@@ -39,7 +39,7 @@ func TestConfreaks_Events(t *testing.T) {
 	d := timeParse("2015-08-07T00:00:00.000Z")
 	assert.Nil(t, err)
 
-	w := NEvent{
+	w := Event{
 		ID:          273,
 		DisplayName: "NebraskaJS 2015",
 		Conference:  "NebraskaJS",
