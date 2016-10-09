@@ -1,11 +1,12 @@
 package main
 
 import (
-	"github.com/subosito/confreaks"
-	"github.com/codegangsta/cli"
-	"text/tabwriter"
 	"fmt"
 	"os"
+	"text/tabwriter"
+
+	"github.com/codegangsta/cli"
+	"github.com/subosito/confreaks"
 )
 
 func main() {
@@ -47,7 +48,7 @@ func main() {
 	app := cli.NewApp()
 	app.Name = "confreaks"
 	app.Usage = "confreaks on the command line"
-	app.Version = "1.0.0"
+	app.Version = "2.0.0"
 	app.Commands = []cli.Command{
 		{
 			Name:  "events",
