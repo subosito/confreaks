@@ -1,6 +1,10 @@
 language: go
+env:
+  - GIMME_OS=linux GIMME_ARCH=amd64
+  - GIMME_OS=darwin GIMME_ARCH=amd64
+  - GIMME_OS=windows GIMME_ARCH=amd64
 install:
   - go get -d -t
-  - go build
+  - go build -o confreaks ./cmd/confreaks/main.go
 script:
   - go test -v
